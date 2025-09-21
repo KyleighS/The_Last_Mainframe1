@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://cjxh3g7rap77y"]
+
+[ext_resource type="Texture2D" uid="uid://b3dictlp70m6p" path="res://Assets/sprites/Shooter_sprites.png" id="1_h3r45"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8mko3"]
+atlas = ExtResource("1_h3r45")
+region = Rect2(24, 0, 8, 4)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7uxlq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8mko3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_7uxlq")
