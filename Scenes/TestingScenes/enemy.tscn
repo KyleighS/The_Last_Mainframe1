@@ -76,7 +76,6 @@ animations = [{
 size = Vector2(16, 13)
 
 [node name="Enemy" type="Node2D"]
-script = ExtResource("1_o6yu0")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -12)
@@ -85,9 +84,8 @@ animation = &"walk"
 autoplay = "walk"
 
 [node name="Area2D" type="Area2D" parent="AnimatedSprite2D"]
+script = ExtResource("1_o6yu0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/Area2D"]
 position = Vector2(0, 5.5)
 shape = SubResource("RectangleShape2D_vea7t")
-
-[connection signal="area_entered" from="AnimatedSprite2D/Area2D" to="." method="_on_area_2d_area_entered"]
