@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cuhh30g726ov3" path="res://Scenes/TestingScenes/TestPlatform.tscn" id="3_beapk"]
 [ext_resource type="PackedScene" uid="uid://uedb6boaqsop" path="res://Scenes/TestingScenes/kill_zone.tscn" id="4_vcrn3"]
 [ext_resource type="PackedScene" uid="uid://djfehby01td3w" path="res://Scenes/TestingScenes/PauseMenu.tscn" id="7_4idvx"]
-[ext_resource type="PackedScene" uid="uid://s01vbrrkp6i0" path="res://Scenes/TestingScenes/Enemy.tscn" id="7_uxf8p"]
+[ext_resource type="PackedScene" uid="uid://o5e0j8l2nlew" path="res://Scenes/TestingScenes/Enemy.tscn" id="7_uxf8p"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_beapk"]
 texture = ExtResource("2_2gc20")
@@ -214,6 +214,21 @@ _data = {
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_vcrn3"]
 
+[sub_resource type="Animation" id="Animation_uxf8p"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(128, -12)]
+}
+
 [sub_resource type="Animation" id="Animation_4idvx"]
 resource_name = "path"
 length = 3.0
@@ -231,7 +246,13 @@ tracks/0/keys = {
 "values": [Vector2(128, -12), Vector2(51, -12)]
 }
 
-[sub_resource type="Animation" id="Animation_uxf8p"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nqnd4"]
+_data = {
+&"RESET": SubResource("Animation_uxf8p"),
+&"path": SubResource("Animation_4idvx")
+}
+
+[sub_resource type="Animation" id="Animation_cmp4v"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -243,13 +264,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(128, -12)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_nqnd4"]
-_data = {
-&"RESET": SubResource("Animation_uxf8p"),
-&"path": SubResource("Animation_4idvx")
+"values": [Vector2(497, -44)]
 }
 
 [sub_resource type="Animation" id="Animation_rkoo5"]
@@ -267,21 +282,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(497, -44), Vector2(623, -44)]
-}
-
-[sub_resource type="Animation" id="Animation_cmp4v"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(497, -44)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_plskd"]
