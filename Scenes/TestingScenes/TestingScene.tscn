@@ -1,12 +1,12 @@
-[gd_scene load_steps=14 format=3 uid="uid://jha7d45guyx8"]
+[gd_scene load_steps=20 format=3 uid="uid://jha7d45guyx8"]
 
 [ext_resource type="Script" uid="uid://bjr4yusa8q5pe" path="res://Scripts/testing_scene.gd" id="1_2ywla"]
 [ext_resource type="PackedScene" uid="uid://etwfoi42hs6c" path="res://Scenes/TestingScenes/Testplayer.tscn" id="1_lddws"]
 [ext_resource type="Texture2D" uid="uid://mu3c25saau4y" path="res://Assets/sprites/world_tileset.png" id="2_2gc20"]
 [ext_resource type="PackedScene" uid="uid://cuhh30g726ov3" path="res://Scenes/TestingScenes/TestPlatform.tscn" id="3_beapk"]
 [ext_resource type="PackedScene" uid="uid://uedb6boaqsop" path="res://Scenes/TestingScenes/kill_zone.tscn" id="4_vcrn3"]
-[ext_resource type="PackedScene" uid="uid://bc4c4v5k0oxy8" path="res://Scenes/TestingScenes/enemy.tscn" id="5_0cf18"]
 [ext_resource type="PackedScene" uid="uid://djfehby01td3w" path="res://Scenes/TestingScenes/PauseMenu.tscn" id="7_4idvx"]
+[ext_resource type="PackedScene" uid="uid://s01vbrrkp6i0" path="res://Scenes/TestingScenes/Enemy.tscn" id="7_uxf8p"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_beapk"]
 texture = ExtResource("2_2gc20")
@@ -214,6 +214,82 @@ _data = {
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_vcrn3"]
 
+[sub_resource type="Animation" id="Animation_4idvx"]
+resource_name = "path"
+length = 3.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(128, -12), Vector2(51, -12)]
+}
+
+[sub_resource type="Animation" id="Animation_uxf8p"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(128, -12)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nqnd4"]
+_data = {
+&"RESET": SubResource("Animation_uxf8p"),
+&"path": SubResource("Animation_4idvx")
+}
+
+[sub_resource type="Animation" id="Animation_rkoo5"]
+resource_name = "path"
+length = 3.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(497, -44), Vector2(623, -44)]
+}
+
+[sub_resource type="Animation" id="Animation_cmp4v"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(497, -44)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_plskd"]
+_data = {
+&"RESET": SubResource("Animation_cmp4v"),
+&"path": SubResource("Animation_rkoo5")
+}
+
 [node name="MainTestingGame" type="Node2D"]
 script = ExtResource("1_2ywla")
 
@@ -261,5 +337,20 @@ position = Vector2(0, -8)
 position = Vector2(-67, 88)
 shape = SubResource("WorldBoundaryShape2D_vcrn3")
 
-[node name="Enemy" parent="." instance=ExtResource("5_0cf18")]
-position = Vector2(111, 0)
+[node name="Enemy" parent="." instance=ExtResource("7_uxf8p")]
+position = Vector2(128, -12)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Enemy"]
+libraries = {
+&"": SubResource("AnimationLibrary_nqnd4")
+}
+autoplay = "path"
+
+[node name="Enemy2" parent="." instance=ExtResource("7_uxf8p")]
+position = Vector2(497, -44)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Enemy2"]
+libraries = {
+&"": SubResource("AnimationLibrary_plskd")
+}
+autoplay = "path"
