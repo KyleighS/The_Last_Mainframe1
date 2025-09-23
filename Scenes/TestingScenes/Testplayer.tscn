@@ -1,7 +1,7 @@
 [gd_scene load_steps=26 format=3 uid="uid://etwfoi42hs6c"]
 
 [ext_resource type="Texture2D" uid="uid://dkgd1bj46a7f2" path="res://Assets/sprites/knight.png" id="1_edvjd"]
-[ext_resource type="Script" uid="uid://cwrl5u1h0of12" path="res://Scripts/testplayerMovement.gd" id="1_fx5nb"]
+[ext_resource type="Script" uid="uid://0l1mop8jdq0h" path="res://Scripts/PlayerMovement.gd" id="1_fx5nb"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_huftt"]
 atlas = ExtResource("1_edvjd")
@@ -186,4 +186,4 @@ position = Vector2(0, -5)
 shape = SubResource("CircleShape2D_oav78")
 
 [node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(5, -5)
+position = Vector2(0, -5)
