@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://bquh5tdfj3b7c"]
+[gd_scene load_steps=4 format=3 uid="uid://c2r01gtgh2l52"]
 
 [ext_resource type="Texture2D" uid="uid://c16fsd8nce5n7" path="res://Assets/sprites/Bullet.png" id="1_3edfc"]
 [ext_resource type="Script" uid="uid://df0c6lnrujrwu" path="res://Scripts/TestBullet.gd" id="2_lcuii"]
@@ -10,7 +10,7 @@ size = Vector2(8, 4)
 texture = ExtResource("1_3edfc")
 script = ExtResource("2_lcuii")
 
-[node name="Area2D" type="Area2D" parent="." groups=["Bullet"]]
+[node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_lcuii")

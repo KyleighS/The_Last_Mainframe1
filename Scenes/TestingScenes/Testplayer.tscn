@@ -1,7 +1,7 @@
-[gd_scene load_steps=26 format=3 uid="uid://etwfoi42hs6c"]
+[gd_scene load_steps=27 format=3 uid="uid://etwfoi42hs6c"]
 
 [ext_resource type="Texture2D" uid="uid://dkgd1bj46a7f2" path="res://Assets/sprites/knight.png" id="1_edvjd"]
-[ext_resource type="Script" uid="uid://cwrl5u1h0of12" path="res://Scripts/testplayerMovement.gd" id="1_fx5nb"]
+[ext_resource type="Script" uid="uid://0l1mop8jdq0h" path="res://Scripts/PlayerMovement.gd" id="1_fx5nb"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_huftt"]
 atlas = ExtResource("1_edvjd")
@@ -171,6 +171,9 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_oav78"]
 radius = 5.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fx5nb"]
+size = Vector2(13, 15)
+
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
 script = ExtResource("1_fx5nb")
@@ -184,6 +187,18 @@ autoplay = "Idle"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -5)
 shape = SubResource("CircleShape2D_oav78")
+debug_color = Color(0, 0.6, 0.701961, 0.772549)
 
 [node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(5, -5)
+position = Vector2(0, -5)
+
+[node name="HitBox" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(-0.5, -7.5)
+shape = SubResource("RectangleShape2D_fx5nb")
+debug_color = Color(0.956863, 0, 0.541176, 0.25098)
+
+[connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]
