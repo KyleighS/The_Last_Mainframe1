@@ -1,0 +1,22 @@
+extends Control
+
+func _on_play_pressed() -> void:
+	$"SFX Click".play()
+	get_tree().change_scene_to_file("res://Scenes/TestingScenes/TestingScene.tscn")
+
+func _on_quit_pressed() -> void:
+	$"SFX Click".play()
+	get_tree().quit()
+
+func _on_options_pressed() -> void:
+	$"SFX Click".play()
+	print("Options pressed. Pending creation.")
+
+func _on_play_mouse_entered() -> void:
+	$"SFX Hover".play()
+
+func _on_options_mouse_entered() -> void:
+	$"SFX Hover".play()
+
+func _on_quit_mouse_entered() -> void:
+	$"SFX Hover".play()
