@@ -71,7 +71,7 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Enemy") && can_damage:
 		#subtracst health from player
 		_health -= 1
-		get_node("Camera2D/HealthBar").get_child(_health).queue_free()
+		get_node("Camera2D/HealthBar").get_child(_health + 3).hide()
 		print("player damaged ", _health)
 		#starts imunity
 		can_damage = false
@@ -99,7 +99,7 @@ func _on_imunity_timer_timeout():
 func heal():
 	if Input.is_action_just_pressed("Heal"):
 		_health += 1
-		#aget_node("Camera2D/HealthBar")a.add_child(heart)
+		get_node("Camera2D/HealthBar").get_child(_health + 2).show()
 		if _health > max_health:
 			_health = max_health
 			
