@@ -15,6 +15,10 @@ run/main_scene="uid://jha7d45guyx8"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+globalVars="*res://Scripts/globalScript.gd"
+
 [display]
 
 window/size/viewport_width=1024
@@ -24,6 +28,10 @@ window/stretch/aspect="ignore"
 [dotnet]
 
 project/assembly_name="TheLastMainframe"
+
+[global_group]
+
+Player=""
 
 [input]
 
@@ -52,6 +60,11 @@ Shoot={
 Pause={
 "deadzone": 0.2,
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194305,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]
+}
+Heal={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":69,"key_label":0,"unicode":101,"location":0,"echo":false,"script":null)
 ]
 }
 
