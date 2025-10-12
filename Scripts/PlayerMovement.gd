@@ -6,6 +6,8 @@ var bulletObj
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity") 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+var checkpoint_manager
+var player
 
 const SPEED = 100.0
 const JUMP_VELOCITY = -300.0
@@ -20,6 +22,9 @@ var _health = max_health
 @onready var imunity_timer = $ImunityTimer
 var can_damage = true
 
+func _ready() -> void:
+	checkpoint_manager = get_parent().get_node("CheckpointManager")
+	player = get_parent().get_node("Player")
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -71,6 +76,7 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Enemy") && can_damage:
 		#subtracst health from player
 		_health -= 1
+		animated_sprite.play("Hit")
 		get_node("Camera2D/HealthBar").get_child(_health + 3).hide()
 		print("player damaged ", _health)
 		#starts imunity
@@ -80,9 +86,10 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 		
 		#kills player
 		if _health <= 0:
+			animated_sprite.play("Die")
 			Engine.time_scale = 0.5
 			respawn_timer.start()
-			get_node("CollisionShape2D").queue_free()
+			get_node("CollisionShape2D").hide()
 			#get_tree().reload_current_scene()
 			print("Player Killed")
 
