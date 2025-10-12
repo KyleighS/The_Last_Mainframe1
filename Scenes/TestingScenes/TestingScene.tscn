@@ -3,13 +3,13 @@
 [ext_resource type="Script" uid="uid://bjr4yusa8q5pe" path="res://Scripts/testing_scene.gd" id="1_2ywla"]
 [ext_resource type="PackedScene" uid="uid://etwfoi42hs6c" path="res://Scenes/TestingScenes/Testplayer.tscn" id="1_lddws"]
 [ext_resource type="Texture2D" uid="uid://mu3c25saau4y" path="res://Assets/sprites/world_tileset.png" id="2_2gc20"]
-[ext_resource type="Script" uid="uid://bq6la1v0pehe" path="res://Scripts/checkpoint_manager.gd" id="2_rkoo5"]
+[ext_resource type="Script" path="res://Scripts/checkpoint_manager.gd" id="2_rkoo5"]
 [ext_resource type="PackedScene" uid="uid://cuhh30g726ov3" path="res://Scenes/TestingScenes/TestPlatform.tscn" id="3_beapk"]
 [ext_resource type="PackedScene" uid="uid://dullob5nj5jne" path="res://Scenes/TestingScenes/checkpoint.tscn" id="3_cmp4v"]
 [ext_resource type="PackedScene" uid="uid://eey4h6dgdfsf" path="res://Scenes/TestingScenes/health_bar.tscn" id="3_uxf8p"]
 [ext_resource type="PackedScene" uid="uid://uedb6boaqsop" path="res://Scenes/TestingScenes/kill_zone.tscn" id="4_vcrn3"]
 [ext_resource type="PackedScene" uid="uid://djfehby01td3w" path="res://Scenes/TestingScenes/PauseMenu.tscn" id="7_4idvx"]
-[ext_resource type="PackedScene" uid="uid://cxpmer632a67j" path="res://Scenes/TestingScenes/enemy.tscn" id="7_uxf8p"]
+[ext_resource type="PackedScene" uid="uid://cxpmer632a67j" path="res://Scenes/TestingScenes/Enemy.tscn" id="7_uxf8p"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_beapk"]
 texture = ExtResource("2_2gc20")

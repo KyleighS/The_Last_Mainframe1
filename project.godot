@@ -11,13 +11,9 @@ config_version=5
 [application]
 
 config/name="TheLastMainframe"
-run/main_scene="uid://cxt4kiiu8d7ws"
+run/main_scene="uid://jha7d45guyx8"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
-
-[autoload]
-
-globalVars="*res://Scripts/globalScript.gd"
 
 [display]
 
