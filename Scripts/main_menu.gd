@@ -2,7 +2,7 @@ extends Control
 
 func _on_play_pressed() -> void:
 	$"SFX Click".play()
-	get_tree().change_scene_to_file("res://Scenes/TestingScenes/TestingScene.tscn")
+	get_tree().change_scene_to_file("res://Scenes/BasicGame/BasicMovement.tscn")
 
 func _on_quit_pressed() -> void:
 	$"SFX Click".play()

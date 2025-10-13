@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://8fo2a0st80mp"]
+
+[ext_resource type="Script" uid="uid://d4mub6c6t6e1x" path="res://Scripts/drag_object.gd" id="1_h2j1g"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h2j1g"]
+size = Vector2(128, 129)
+
+[node name="DragObject" type="Node2D"]
+script = ExtResource("1_h2j1g")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_h2j1g")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
