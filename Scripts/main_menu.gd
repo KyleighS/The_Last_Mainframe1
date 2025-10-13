@@ -20,3 +20,10 @@ func _on_options_mouse_entered() -> void:
 
 func _on_quit_mouse_entered() -> void:
 	$"SFX Hover".play()
+
+func _on_drag_captcha_pressed() -> void:
+	$"SFX Click".play()
+	get_tree().change_scene_to_file("res://Scenes/DragCaptcha/drag_captcha.tscn")
+
+func _on_drag_captcha_mouse_entered() -> void:
+	$"SFX Hover".play()
