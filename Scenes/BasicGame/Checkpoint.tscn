@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dullob5nj5jne"]
 
-[ext_resource type="Script" path="res://Scripts/checkpoint.gd" id="1_phkb0"]
+[ext_resource type="Script" uid="uid://dgjvdtm8r07br" path="res://Scripts/checkpoint.gd" id="1_phkb0"]
 [ext_resource type="Texture2D" uid="uid://d0d4n2ba1xxb5" path="res://Assets/sprites/flag-a.png" id="2_hs532"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bo7n7"]
@@ -10,14 +10,15 @@ size = Vector2(20, 192)
 script = ExtResource("1_phkb0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -52)
+position = Vector2(0, -87)
 shape = SubResource("RectangleShape2D_bo7n7")
 
 [node name="RespawnPoint" type="Marker2D" parent="."]
-position = Vector2(0, -11)
+position = Vector2(0, -48)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -11)
+position = Vector2(12.75, -30.55)
+scale = Vector2(2.7, 2.7)
 texture = ExtResource("2_hs532")
 region_enabled = true
 region_rect = Rect2(1, 0, 15, 23)

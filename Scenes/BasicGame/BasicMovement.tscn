@@ -325,17 +325,6 @@ zoom = Vector2(4, 4)
 limit_bottom = 120
 limit_smoothed = true
 
-[node name="PauseMenu" parent="Player/Camera2D" instance=ExtResource("6_it6er")]
-visible = false
-z_index = 10
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-grow_horizontal = 2
-grow_vertical = 2
-
 [node name="HealthBar" parent="Player/Camera2D" instance=ExtResource("7_3wtmg")]
 position = Vector2(-128, -96)
 
@@ -384,3 +373,14 @@ position = Vector2(-312, 4)
 
 [node name="Enemy4" parent="." instance=ExtResource("10_yrql8")]
 position = Vector2(-319, 52)
+
+[node name="PauseMenu" parent="." instance=ExtResource("6_it6er")]
+visible = false
+z_index = 10
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = -8.0
+offset_bottom = -8.0

@@ -9,8 +9,8 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var checkpoint_manager
 var player
 
-const SPEED = 100.0
-const JUMP_VELOCITY = -300.0
+const SPEED = 270.0
+const JUMP_VELOCITY = -600.0
 
 # Gets the input direction
 var direction = Input.get_axis("Move_Left", "Move_Right")
@@ -46,16 +46,16 @@ func _physics_process(delta: float) -> void:
 		
 	# Flips the sprite
 	if direction > 0:
-		animated_sprite.flip_h = false
-	elif direction < 0:
 		animated_sprite.flip_h = true
+	elif direction < 0:
+		animated_sprite.flip_h = false
 	
 	# Plays the animations
 	if is_on_floor():
 		if direction == 0:
 			animated_sprite.play("Idle")
 		else:
-			animated_sprite.play("Walk")
+			animated_sprite.play("Run")
 	else:
 		animated_sprite.play("Jump")
 	shoot(animated_sprite.flip_h)
@@ -67,7 +67,7 @@ func shoot(dir):
 		bulletObj = bullet.instantiate()
 		bulletObj.init(dir)
 		get_parent().add_child(bulletObj)
-		bulletObj.global_position = $Marker2D.global_position
+		bulletObj.global_position = $ShootPoint.global_position
 		
 
 #Health Functions

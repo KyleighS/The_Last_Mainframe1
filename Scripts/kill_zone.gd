@@ -9,10 +9,12 @@ func _ready() -> void:
 	player = get_parent().get_node("Player")
 
 func _on_body_entered(body):
+	print("timer start")
 	#get_tree().reload_current_scene()
 	Engine.time_scale = 0.5
 	timer.start()
 
 func _on_timer_timeout():
+	print("timer end")
 	Engine.time_scale = 1.0
 	player.position = checkpoint_manager.last_location
