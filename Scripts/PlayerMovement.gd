@@ -9,8 +9,8 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var checkpoint_manager
 var player
 
-const SPEED = 100.0
-const JUMP_VELOCITY = -300.0
+const SPEED = 200.0
+const JUMP_VELOCITY = -600.0
 
 # Gets the input direction
 var direction = Input.get_axis("Move_Left", "Move_Right")
