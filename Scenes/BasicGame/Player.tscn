@@ -1,8 +1,9 @@
-[gd_scene load_steps=59 format=3 uid="uid://etwfoi42hs6c"]
+[gd_scene load_steps=60 format=3 uid="uid://etwfoi42hs6c"]
 
-[ext_resource type="Script" uid="uid://0l1mop8jdq0h" path="res://Scripts/PlayerMovement.gd" id="1_fx5nb"]
+[ext_resource type="Script" uid="uid://0l1mop8jdq0h" path="res://Scripts/Basic Scripts/PlayerMovement.gd" id="1_fx5nb"]
 [ext_resource type="Texture2D" uid="uid://dcdhlheuo8v6o" path="res://Assets/sprites/RunningSpriteSheetLeft.png" id="2_gqctc"]
 [ext_resource type="Texture2D" uid="uid://cbfydjp0bxvxs" path="res://Assets/sprites/JumpingSpriteSheet.png" id="3_0jft3"]
+[ext_resource type="PackedScene" uid="uid://cjpb2fnbkswuh" path="res://Scenes/BasicGame/interact_obj.tscn" id="4_xbmbq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xbmbq"]
 atlas = ExtResource("2_gqctc")
@@ -426,8 +427,11 @@ one_shot = true
 wait_time = 0.6
 one_shot = true
 
+[node name="InteractOBJ" parent="." instance=ExtResource("4_xbmbq")]
+position = Vector2(0, -10)
+
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="timeout" from="ImunityTimer" to="." method="_on_imunity_timer_timeout"]
-[connection signal="timeout" from="RespawnTimer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="RespawnTimer" to="." method="_on_respawn_timer_timeout"]
+[connection signal="timeout" from="RespawnTimer" to="." method="_on_timer_timeout"]

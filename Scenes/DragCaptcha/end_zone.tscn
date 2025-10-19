@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cfhyfrh2hqpq1"]
 
-[ext_resource type="Script" uid="uid://bmvrujq7026lp" path="res://Scripts/end_zone.gd" id="1_nmkik"]
+[ext_resource type="Script" uid="uid://bmvrujq7026lp" path="res://Scripts/Drag Captcha/end_zone.gd" id="1_nmkik"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bprk2"]
 

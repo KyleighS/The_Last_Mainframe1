@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://c5fltol0bt0kt"]
 
 [ext_resource type="FontFile" uid="uid://x6ycq81brgpn" path="res://Assets/fonts/MS Sans Serif Bold.ttf" id="1_e0onf"]
-[ext_resource type="Script" uid="uid://cykpnl2aer5hn" path="res://Scripts/hud.gd" id="1_fccik"]
+[ext_resource type="Script" uid="uid://cykpnl2aer5hn" path="res://Scripts/Menus/hud.gd" id="1_fccik"]
 
 [node name="Captcha_HUD" type="Control" node_paths=PackedStringArray("stopwatch_label")]
 layout_mode = 3
