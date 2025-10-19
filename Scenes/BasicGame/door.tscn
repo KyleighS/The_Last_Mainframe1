@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://cuxmcfi6islf7"]
+
+[ext_resource type="Script" uid="uid://dykwt18d7x8wl" path="res://Scripts/Basic Scripts/door.gd" id="1_obde7"]
+[ext_resource type="Texture2D" uid="uid://0lamotkmjryk" path="res://Assets/sprites/lpc-doors-animated-1.png" id="1_wmloa"]
+[ext_resource type="PackedScene" uid="uid://dbeuqwwn08tv4" path="res://Scenes/BasicGame/interactable.tscn" id="2_883h2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_883h2"]
+size = Vector2(38, 111)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_obde7"]
+size = Vector2(7.84179, 64.4312)
+
+[node name="Door" type="StaticBody2D"]
+scale = Vector2(2.16787, 2.16787)
+script = ExtResource("1_obde7")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -32)
+texture = ExtResource("1_wmloa")
+region_enabled = true
+region_rect = Rect2(27, 15, 10, 66)
+
+[node name="Interactable" parent="." instance=ExtResource("2_883h2")]
+interactable_name = "Open Door"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable"]
+position = Vector2(0, -55.5)
+shape = SubResource("RectangleShape2D_883h2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.230641, -31.9025)
+shape = SubResource("RectangleShape2D_obde7")

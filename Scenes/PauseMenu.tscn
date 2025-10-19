@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://djfehby01td3w"]
 
-[ext_resource type="Script" uid="uid://csaepp8mj0mlf" path="res://Scripts/pause_menu.gd" id="1_glyso"]
+[ext_resource type="Script" uid="uid://csaepp8mj0mlf" path="res://Scripts/Menus/pause_menu.gd" id="1_glyso"]
 [ext_resource type="FontFile" uid="uid://y25p5iecqqxt" path="res://Assets/fonts/MS Sans Serif.ttf" id="2_5w4ur"]
 [ext_resource type="FontFile" uid="uid://sbs231h76or8" path="res://Assets/fonts/Perfect DOS VGA 437 Win.ttf" id="2_qwhev"]
 [ext_resource type="AudioStream" uid="uid://ksxru857b703" path="res://Assets/sounds/UI_Click.wav" id="4_siy43"]

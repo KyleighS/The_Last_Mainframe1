@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://c5fltol0bt0kt" path="res://Scenes/Captcha_HUD.tscn" id="4_x2idx"]
 [ext_resource type="Texture2D" uid="uid://cwvmoybktlcro" path="res://Assets/UI/2Tile.png" id="5_pgd5l"]
 [ext_resource type="FontFile" uid="uid://x6ycq81brgpn" path="res://Assets/fonts/MS Sans Serif Bold.ttf" id="6_pgd5l"]
-[ext_resource type="Script" uid="uid://dn5cedxaluibv" path="res://Scripts/VerifyBtn.gd" id="7_38ltn"]
+[ext_resource type="Script" uid="uid://dn5cedxaluibv" path="res://Scripts/Drag Captcha/VerifyBtn.gd" id="7_38ltn"]
 [ext_resource type="AudioStream" uid="uid://cevnxp2sxx7ua" path="res://Assets/sounds/UI_Hover.wav" id="8_0grj4"]
 [ext_resource type="AudioStream" uid="uid://ksxru857b703" path="res://Assets/sounds/UI_Click.wav" id="9_jhrle"]
 [ext_resource type="PackedScene" uid="uid://b7psrdysw4hr7" path="res://Scenes/win_screen.tscn" id="10_8ug5q"]

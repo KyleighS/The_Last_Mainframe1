@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bcgkb3d1ye1t3"]
 
 [ext_resource type="FontFile" uid="uid://y25p5iecqqxt" path="res://Assets/fonts/MS Sans Serif.ttf" id="1_488pv"]
-[ext_resource type="Script" uid="uid://ophu555gn2yk" path="res://Scripts/lose_menu.gd" id="1_go37l"]
+[ext_resource type="Script" uid="uid://ophu555gn2yk" path="res://Scripts/Menus/lose_menu.gd" id="1_go37l"]
 [ext_resource type="FontFile" uid="uid://1rq226utyls8" path="res://Assets/fonts/Perfect DOS VGA 437.ttf" id="2_go37l"]
 
 [node name="LoseScreen" type="Control"]

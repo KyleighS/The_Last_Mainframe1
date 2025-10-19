@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://cjpb2fnbkswuh"]
+
+[ext_resource type="Script" uid="uid://digc5s7oeivul" path="res://Scripts/Basic Scripts/interact_obj.gd" id="1_j4e2b"]
+[ext_resource type="FontFile" uid="uid://x6ycq81brgpn" path="res://Assets/fonts/MS Sans Serif Bold.ttf" id="1_tabb5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j4e2b"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_nmirw"]
+font = ExtResource("1_tabb5")
+font_size = 11
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[node name="InteractComponent" type="Node2D"]
+script = ExtResource("1_j4e2b")
+
+[node name="InteractRange" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractRange"]
+shape = SubResource("RectangleShape2D_j4e2b")
+
+[node name="InteractLabel" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -24.0
+offset_top = -110.0
+offset_right = 28.0
+offset_bottom = -87.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "E to hack"
+label_settings = SubResource("LabelSettings_nmirw")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="area_entered" from="InteractRange" to="." method="_on_interact_range_area_entered"]
+[connection signal="area_exited" from="InteractRange" to="." method="_on_interact_range_area_exited"]

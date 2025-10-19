@@ -1,7 +1,7 @@
 [gd_scene load_steps=23 format=3 uid="uid://jha7d45guyx8"]
 
-[ext_resource type="Script" uid="uid://bjr4yusa8q5pe" path="res://Scripts/testing_scene.gd" id="1_ttjrr"]
-[ext_resource type="Script" uid="uid://bq6la1v0pehe" path="res://Scripts/checkpoint_manager.gd" id="2_ogxdp"]
+[ext_resource type="Script" uid="uid://bjr4yusa8q5pe" path="res://Scripts/Basic Scripts/testing_scene.gd" id="1_ttjrr"]
+[ext_resource type="Script" uid="uid://bq6la1v0pehe" path="res://Scripts/Basic Scripts/checkpoint_manager.gd" id="2_ogxdp"]
 [ext_resource type="PackedScene" uid="uid://dullob5nj5jne" path="res://Scenes/BasicGame/Checkpoint.tscn" id="3_0wbvt"]
 [ext_resource type="Texture2D" uid="uid://mu3c25saau4y" path="res://Assets/sprites/world_tileset.png" id="4_i5n5b"]
 [ext_resource type="PackedScene" uid="uid://etwfoi42hs6c" path="res://Scenes/BasicGame/Player.tscn" id="5_pd5eb"]
