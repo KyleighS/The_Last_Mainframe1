@@ -11,11 +11,12 @@ func _on_mouse_entered():
 
 func _on_pressed():
 	sfx_click.play()
-	if Global.all_ones_gone:
+	if Global.valid_Nums <= 0:
+		Global.captcha_cleared = true
 		sfx_success.play()
 		print("all clear")
 		Engine.time_scale = 0
-		win_screen.show()
+		#win_screen.show()
 	else:
 		print("not done")
 		sfx_failure.play()

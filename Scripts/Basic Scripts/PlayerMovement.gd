@@ -63,7 +63,7 @@ func _physics_process(delta: float) -> void:
 	heal()
 	
 func shoot(dir):
-	if Input.is_action_just_pressed("Shoot"):
+	if Input.is_action_just_pressed("Shoot") and Engine.time_scale == 1:
 		bulletObj = bullet.instantiate()
 		bulletObj.init(dir)
 		get_parent().add_child(bulletObj)
