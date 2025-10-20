@@ -1,13 +1,14 @@
-[gd_scene load_steps=16 format=3 uid="uid://cxkdfyd1c2830"]
+[gd_scene load_steps=17 format=3 uid="uid://cxkdfyd1c2830"]
 
 [ext_resource type="FontFile" uid="uid://1rq226utyls8" path="res://Assets/fonts/Perfect DOS VGA 437.ttf" id="1_8xipq"]
 [ext_resource type="PackedScene" uid="uid://8fo2a0st80mp" path="res://Scenes/DragCaptcha/drag_object.tscn" id="1_aw0ry"]
+[ext_resource type="Script" uid="uid://bu4xg5ocipitx" path="res://Scenes/DragCaptcha/drag_captcha_manager.gd" id="1_qtw4p"]
 [ext_resource type="PackedScene" uid="uid://cvvpacs2wctdm" path="res://Scenes/stopwatch.tscn" id="1_x2idx"]
 [ext_resource type="PackedScene" uid="uid://cfhyfrh2hqpq1" path="res://Scenes/DragCaptcha/end_zone.tscn" id="2_om4t1"]
-[ext_resource type="Texture2D" uid="uid://da50asc2tdaoq" path="res://Assets/UI/1Tile.png" id="4_8xipq"]
 [ext_resource type="PackedScene" uid="uid://c5fltol0bt0kt" path="res://Scenes/Captcha_HUD.tscn" id="4_x2idx"]
-[ext_resource type="Texture2D" uid="uid://cwvmoybktlcro" path="res://Assets/UI/2Tile.png" id="5_pgd5l"]
+[ext_resource type="Texture2D" uid="uid://2rrodn8fer1k" path="res://Assets/UI/One.png" id="5_630ia"]
 [ext_resource type="FontFile" uid="uid://x6ycq81brgpn" path="res://Assets/fonts/MS Sans Serif Bold.ttf" id="6_pgd5l"]
+[ext_resource type="Texture2D" uid="uid://b0u75qiilbe21" path="res://Assets/UI/Two.png" id="6_qtw4p"]
 [ext_resource type="Script" uid="uid://dn5cedxaluibv" path="res://Scripts/Drag Captcha/VerifyBtn.gd" id="7_38ltn"]
 [ext_resource type="AudioStream" uid="uid://cevnxp2sxx7ua" path="res://Assets/sounds/UI_Hover.wav" id="8_0grj4"]
 [ext_resource type="AudioStream" uid="uid://ksxru857b703" path="res://Assets/sounds/UI_Click.wav" id="9_jhrle"]
@@ -17,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://bcgkb3d1ye1t3" path="res://Scenes/lose_screen.tscn" id="11_of7bc"]
 
 [node name="DragCaptcha" type="Node2D"]
+script = ExtResource("1_qtw4p")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -60,10 +62,8 @@ position = Vector2(183, 383)
 scale = Vector2(0.8, 0.8)
 
 [node name="Sprite2D" type="Sprite2D" parent="DragObject"]
-position = Vector2(0, 2.38419e-07)
-scale = Vector2(10, 10.156)
-texture = ExtResource("4_8xipq")
-offset = Vector2(0.5, 0.5)
+scale = Vector2(10, 10)
+texture = ExtResource("5_630ia")
 
 [node name="DragObject2" parent="." groups=["Ones"] instance=ExtResource("1_aw0ry")]
 position = Vector2(907, 325)
@@ -72,8 +72,7 @@ scale = Vector2(0.8, 0.8)
 [node name="Sprite2D" type="Sprite2D" parent="DragObject2"]
 position = Vector2(0, 2.38419e-07)
 scale = Vector2(10, 10.156)
-texture = ExtResource("4_8xipq")
-offset = Vector2(0.5, 0.5)
+texture = ExtResource("5_630ia")
 
 [node name="DragObject3" parent="." groups=["Ones"] instance=ExtResource("1_aw0ry")]
 position = Vector2(408, 603)
@@ -82,8 +81,7 @@ scale = Vector2(0.8, 0.8)
 [node name="Sprite2D" type="Sprite2D" parent="DragObject3"]
 position = Vector2(0, 2.38419e-07)
 scale = Vector2(10, 10.156)
-texture = ExtResource("4_8xipq")
-offset = Vector2(0.5, 0.5)
+texture = ExtResource("5_630ia")
 
 [node name="DragObject4" parent="." groups=["Twos"] instance=ExtResource("1_aw0ry")]
 position = Vector2(641, 619)
@@ -92,8 +90,7 @@ scale = Vector2(0.8, 0.8)
 [node name="Sprite2D" type="Sprite2D" parent="DragObject4"]
 position = Vector2(0, 2.38419e-07)
 scale = Vector2(10, 10.156)
-texture = ExtResource("5_pgd5l")
-offset = Vector2(0.5, 0.5)
+texture = ExtResource("6_qtw4p")
 
 [node name="DragObject5" parent="." groups=["Twos"] instance=ExtResource("1_aw0ry")]
 position = Vector2(827, 517)
@@ -102,8 +99,7 @@ scale = Vector2(0.8, 0.8)
 [node name="Sprite2D" type="Sprite2D" parent="DragObject5"]
 position = Vector2(0, 2.38419e-07)
 scale = Vector2(10, 10.156)
-texture = ExtResource("5_pgd5l")
-offset = Vector2(0.5, 0.5)
+texture = ExtResource("6_qtw4p")
 
 [node name="DragObject6" parent="." groups=["Twos"] instance=ExtResource("1_aw0ry")]
 position = Vector2(179, 582)
@@ -112,8 +108,7 @@ scale = Vector2(0.8, 0.8)
 [node name="Sprite2D" type="Sprite2D" parent="DragObject6"]
 position = Vector2(0, 2.38419e-07)
 scale = Vector2(10, 10.156)
-texture = ExtResource("5_pgd5l")
-offset = Vector2(0.5, 0.5)
+texture = ExtResource("6_qtw4p")
 
 [node name="Stopwatch" parent="." instance=ExtResource("1_x2idx")]
 

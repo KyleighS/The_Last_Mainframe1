@@ -15,7 +15,7 @@ func _process(delta):
 		lose_screen.show()
 
 func reset():
-	time = 10.0
+	time = 11.0
 
 func time_to_string() -> String:
 	#make the time var a string to use in UI

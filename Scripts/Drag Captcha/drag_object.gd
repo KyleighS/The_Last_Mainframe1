@@ -5,6 +5,11 @@ var is_inside_dropable = false
 var body_ref
 var offset: Vector2
 var initialPos: Vector2
+var Door = preload("res://Scenes/BasicGame/door.tscn")
+var captcha_manager
+
+func ready():
+	captcha_manager.get_parent()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -24,8 +29,8 @@ func _process(delta: float) -> void:
 			var tween = get_tree().create_tween()
 			if is_inside_dropable and is_in_group("Ones"):
 				tween.tween_property(self, "position", body_ref.position, 0.2).set_ease(Tween.EASE_OUT)
-				Global.valid_Nums -= 1
-				print(Global.valid_Nums)
+				captcha_manager.valid_Nums -= 1
+				print(captcha_manager.valid_Nums)
 				queue_free() 
 			else:
 				tween.tween_property(self, "global_position", initialPos, 0.2).set_ease(Tween.EASE_OUT)
@@ -49,3 +54,4 @@ func _on_area_2d_body_entered(body: Node2D):
 func _on_area_2d_body_exited(body: Node2D):
 	if body.is_in_group("dropable"):
 		is_inside_dropable = false
+		
