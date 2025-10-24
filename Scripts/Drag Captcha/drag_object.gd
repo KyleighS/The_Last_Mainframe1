@@ -5,6 +5,11 @@ var is_inside_dropable = false
 var body_ref
 var offset: Vector2
 var initialPos: Vector2
+var Door = preload("res://Scenes/BasicGame/door.tscn")
+var captcha_manager
+
+func ready():
+	captcha_manager.get_parent()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -49,3 +54,4 @@ func _on_area_2d_body_entered(body: Node2D):
 func _on_area_2d_body_exited(body: Node2D):
 	if body.is_in_group("dropable"):
 		is_inside_dropable = false
+		

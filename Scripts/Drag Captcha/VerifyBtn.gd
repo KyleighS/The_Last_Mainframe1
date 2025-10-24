@@ -5,6 +5,11 @@ extends Button
 @onready var sfx_success: AudioStreamPlayer = $"../SFX Success"
 @onready var sfx_failure: AudioStreamPlayer = $"../SFX Failure"
 @onready var win_screen: Control = $"../WinScreen"
+var Door = preload("res://Scenes/BasicGame/door.tscn").get_script()
+var captcha_manager
+
+func ready():
+	captcha_manager.get_parent().get_script()
 
 func _on_mouse_entered():
 	sfx_hover.play()
