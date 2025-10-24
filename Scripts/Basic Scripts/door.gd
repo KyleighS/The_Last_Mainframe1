@@ -8,7 +8,7 @@ extends StaticBody2D
 @export var captcha_cleared = false
 
 func _process(delta: float):
-	if captcha_cleared:
+	if Global.captcha_cleared:
 		queue_free()
 		Engine.time_scale = 1
 

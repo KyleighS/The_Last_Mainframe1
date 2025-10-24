@@ -29,8 +29,8 @@ func _process(delta: float) -> void:
 			var tween = get_tree().create_tween()
 			if is_inside_dropable and is_in_group("Ones"):
 				tween.tween_property(self, "position", body_ref.position, 0.2).set_ease(Tween.EASE_OUT)
-				captcha_manager.valid_Nums -= 1
-				print(captcha_manager.valid_Nums)
+				Global.valid_Nums -= 1
+				print(Global.valid_Nums)
 				queue_free() 
 			else:
 				tween.tween_property(self, "global_position", initialPos, 0.2).set_ease(Tween.EASE_OUT)

@@ -16,8 +16,8 @@ func _on_mouse_entered():
 
 func _on_pressed():
 	sfx_click.play()
-	if captcha_manager.valid_Nums <= 0:
-		captcha_manager.captcha_cleared = true
+	if Global.valid_Nums <= 0:
+		Global.captcha_cleared = true
 		sfx_success.play()
 		print("all clear")
 		Engine.time_scale = 0

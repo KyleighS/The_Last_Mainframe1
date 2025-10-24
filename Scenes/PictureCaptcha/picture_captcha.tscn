@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://buvdno3cdyldh"]
+[gd_scene load_steps=10 format=3 uid="uid://buvdno3cdyldh"]
 
 [ext_resource type="FontFile" uid="uid://1rq226utyls8" path="res://Assets/fonts/Perfect DOS VGA 437.ttf" id="1_5tco3"]
 [ext_resource type="PackedScene" uid="uid://c5fltol0bt0kt" path="res://Scenes/Captcha_HUD.tscn" id="2_m6ncu"]
 [ext_resource type="StyleBox" uid="uid://dbr3ktmbax0xa" path="res://Scenes/PictureCaptcha/OnesBTN.tres" id="3_rmf5w"]
 [ext_resource type="StyleBox" uid="uid://oc57v56ot2ws" path="res://Scenes/PictureCaptcha/TwosBTN.tres" id="4_et2ob"]
 [ext_resource type="Script" uid="uid://tn0qpsruhyb1" path="res://Scripts/Basic Scripts/stopwatch.gd" id="4_xb5c2"]
+[ext_resource type="Texture2D" uid="uid://b0u75qiilbe21" path="res://Assets/UI/TwoNrm.png" id="5_et2ob"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_m6ncu"]
 font = ExtResource("1_5tco3")
@@ -18,7 +19,10 @@ font_size = 48
 shadow_color = Color(0, 0, 0, 1)
 shadow_offset = Vector2(2, 2)
 
-[node name="PictureCaptcha" type="Node2D"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_o7nkb"]
+texture = ExtResource("5_et2ob")
+
+[node name="PictureRegCaptcha" type="Node2D"]
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -150,6 +154,7 @@ icon_alignment = 1
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_styles/pressed = SubResource("StyleBoxTexture_o7nkb")
 theme_override_styles/normal = ExtResource("4_et2ob")
 icon_alignment = 1
 
