@@ -4,7 +4,7 @@ extends Node
 @onready var lose_screen: Control = $"../LoseScreen"
 
 var time = 11.0
-var stopped = false
+var stopped = true
 
 func _process(delta):
 	if stopped:

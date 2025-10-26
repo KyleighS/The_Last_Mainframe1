@@ -1,16 +1,18 @@
-[gd_scene load_steps=36 format=3 uid="uid://drkm8py3qe8y2"]
+[gd_scene load_steps=39 format=3 uid="uid://drkm8py3qe8y2"]
 
 [ext_resource type="Script" uid="uid://bjr4yusa8q5pe" path="res://Scripts/Basic Scripts/testing_scene.gd" id="1_0svm2"]
 [ext_resource type="Texture2D" uid="uid://mu3c25saau4y" path="res://Assets/sprites/world_tileset.png" id="2_dwkf2"]
 [ext_resource type="PackedScene" uid="uid://etwfoi42hs6c" path="res://Scenes/BasicGame/Player.tscn" id="3_rp1kx"]
 [ext_resource type="PackedScene" uid="uid://eey4h6dgdfsf" path="res://Scenes/BasicGame/Health_Bar.tscn" id="4_dkcpx"]
 [ext_resource type="PackedScene" uid="uid://dob202asrxibu" path="res://Scenes/BasicGame/Enemy.tscn" id="5_4b78x"]
+[ext_resource type="PackedScene" uid="uid://b7psrdysw4hr7" path="res://Scenes/win_screen.tscn" id="5_rp1kx"]
 [ext_resource type="PackedScene" uid="uid://uedb6boaqsop" path="res://Scenes/BasicGame/Kill_Zone.tscn" id="6_7niyd"]
 [ext_resource type="PackedScene" uid="uid://djfehby01td3w" path="res://Scenes/PauseMenu.tscn" id="7_cdlen"]
 [ext_resource type="PackedScene" uid="uid://cuhh30g726ov3" path="res://Scenes/BasicGame/Platform.tscn" id="8_311h1"]
 [ext_resource type="Script" uid="uid://bq6la1v0pehe" path="res://Scripts/Basic Scripts/checkpoint_manager.gd" id="9_s3crk"]
 [ext_resource type="PackedScene" uid="uid://dullob5nj5jne" path="res://Scenes/BasicGame/Checkpoint.tscn" id="10_8esdv"]
 [ext_resource type="PackedScene" uid="uid://cuxmcfi6islf7" path="res://Scenes/BasicGame/door.tscn" id="11_dwkf2"]
+[ext_resource type="Script" uid="uid://647lu381fl3r" path="res://Scenes/BasicGame/win_box.gd" id="13_dkcpx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_feb5d"]
 texture = ExtResource("2_dwkf2")
@@ -416,6 +418,9 @@ _data = {
 &"move": SubResource("Animation_e8heu")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rp1kx"]
+size = Vector2(80, 218)
+
 [node name="Game" type="Node2D"]
 script = ExtResource("1_0svm2")
 
@@ -428,19 +433,38 @@ layer_0/tile_data = PackedInt32Array(0, 393216, 1, 1, 393216, 1, 2, 393216, 1, 5
 
 [node name="Player" parent="." instance=ExtResource("3_rp1kx")]
 z_index = 5
-position = Vector2(139, -42)
+position = Vector2(277, -185)
 
 [node name="CameraPoint" type="Marker2D" parent="Player"]
 position = Vector2(-1, -202)
+
+[node name="PauseMenu" parent="Player/CameraPoint" instance=ExtResource("7_cdlen")]
+visible = false
+z_index = 10
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+
+[node name="WinScreen" parent="Player/CameraPoint" instance=ExtResource("5_rp1kx")]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
 
 [node name="Camera2D" type="Camera2D" parent="Player/CameraPoint"]
 scale = Vector2(0.22, 0.22)
 zoom = Vector2(0.94, 0.94)
 limit_bottom = 400
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
 
-[node name="HealthBar" parent="Player/CameraPoint" instance=ExtResource("4_dkcpx")]
-position = Vector2(-540.001, -400)
-scale = Vector2(0.999999, 0.999999)
+[node name="HealthBar" parent="Player/CameraPoint/Camera2D" instance=ExtResource("4_dkcpx")]
+position = Vector2(-2454.55, -1818.18)
+scale = Vector2(4.54545, 4.54545)
 
 [node name="Enemy" parent="." instance=ExtResource("5_4b78x")]
 position = Vector2(38, -60)
@@ -490,14 +514,6 @@ position = Vector2(630, 34)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KillZone"]
 position = Vector2(0, 42)
 shape = SubResource("WorldBoundaryShape2D_fc0e3")
-
-[node name="PauseMenu" parent="." instance=ExtResource("7_cdlen")]
-visible = false
-z_index = 10
-offset_left = 123.0
-offset_top = -55.0
-offset_right = 123.0
-offset_bottom = -55.0
 
 [node name="Platform" parent="." instance=ExtResource("8_311h1")]
 position = Vector2(2688, -744)
@@ -558,3 +574,15 @@ position = Vector2(751, -209)
 [node name="Door2" parent="." instance=ExtResource("11_dwkf2")]
 z_index = 6
 position = Vector2(5057, -574)
+
+[node name="WinBox" type="Area2D" parent="."]
+collision_mask = 2
+script = ExtResource("13_dkcpx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WinBox"]
+position = Vector2(10505, -895)
+shape = SubResource("RectangleShape2D_rp1kx")
+
+[connection signal="area_entered" from="WinBox" to="WinBox" method="_on_area_entered"]
+[connection signal="body_entered" from="WinBox" to="." method="_on_win_box_body_entered"]
+[connection signal="body_entered" from="WinBox" to="WinBox" method="_on_body_entered"]
