@@ -19,10 +19,10 @@ func _on_pressed():
 	if Global.valid_Nums <= 0:
 		Global.captcha_cleared = true
 		sfx_success.play()
-		print("all clear")
+		#print("all clear")
 		Engine.time_scale = 0
 		#win_screen.show()
 	else:
-		print("not done")
+		#print("not done")
 		sfx_failure.play()
 	

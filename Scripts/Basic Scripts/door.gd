@@ -3,7 +3,7 @@ extends StaticBody2D
 @onready var interactable: Area2D = $Interactable
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var drag_captcha: Node2D = $DragCaptcha
-const stopwatch = preload("res://Scenes/stopwatch.tscn")
+@onready var stopwatch = $DragCaptcha/Stopwatch
 
 @export var valid_Nums = 3
 @export var captcha_cleared = false
@@ -18,6 +18,7 @@ func _ready() -> void:
 	
 
 func on_interact():
+	stopwatch.stopped = false
+	#print("State: ", stopwatch.stopped)
 	drag_captcha.show()
-	#stopwatch.get_script().stopped = false
 	Engine.time_scale = 0

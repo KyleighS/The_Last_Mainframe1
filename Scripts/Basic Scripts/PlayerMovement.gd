@@ -117,7 +117,9 @@ func heal():
 		print("player healed to ", _health)
 
 func knockback():
-	var knockbackDir = -velocity.normalized() * knockbcakPower
-	velocity = knockbackDir
-	move_and_slide()
-	
+	#Note: revisit enemies knocing the player when they are just standing when
+	#I remake the movement of the enemies
+	if is_on_floor():
+		var knockbackDir = -velocity.normalized() * knockbcakPower
+		velocity = knockbackDir
+		move_and_slide()
