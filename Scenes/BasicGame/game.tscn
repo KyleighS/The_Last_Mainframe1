@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://drkm8py3qe8y2"]
+[gd_scene load_steps=41 format=3 uid="uid://drkm8py3qe8y2"]
 
 [ext_resource type="Script" uid="uid://bjr4yusa8q5pe" path="res://Scripts/Basic Scripts/testing_scene.gd" id="1_0svm2"]
 [ext_resource type="Texture2D" uid="uid://mu3c25saau4y" path="res://Assets/sprites/world_tileset.png" id="2_dwkf2"]
@@ -11,8 +11,10 @@
 [ext_resource type="PackedScene" uid="uid://cuhh30g726ov3" path="res://Scenes/BasicGame/Platform.tscn" id="8_311h1"]
 [ext_resource type="Script" uid="uid://bq6la1v0pehe" path="res://Scripts/Basic Scripts/checkpoint_manager.gd" id="9_s3crk"]
 [ext_resource type="PackedScene" uid="uid://dullob5nj5jne" path="res://Scenes/BasicGame/Checkpoint.tscn" id="10_8esdv"]
-[ext_resource type="PackedScene" uid="uid://cuxmcfi6islf7" path="res://Scenes/BasicGame/door.tscn" id="11_dwkf2"]
-[ext_resource type="Script" uid="uid://647lu381fl3r" path="res://Scenes/BasicGame/win_box.gd" id="13_dkcpx"]
+[ext_resource type="PackedScene" uid="uid://cuxmcfi6islf7" path="res://Scenes/BasicGame/Drag_door.tscn" id="11_dwkf2"]
+[ext_resource type="PackedScene" uid="uid://83tqseux81dm" path="res://Scenes/BasicGame/PicReg_door.tscn" id="12_4b78x"]
+[ext_resource type="Script" uid="uid://dc65p87rt47to" path="res://Scripts/Basic Scripts/PicReg_door.gd" id="13_7niyd"]
+[ext_resource type="Script" uid="uid://647lu381fl3r" path="res://Scripts/win_box.gd" id="13_dkcpx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_feb5d"]
 texture = ExtResource("2_dwkf2")
@@ -576,9 +578,10 @@ collision_mask = 2
 position = Vector2(7281, -714)
 collision_mask = 2
 
-[node name="Door" parent="." instance=ExtResource("11_dwkf2")]
+[node name="PicReg_Door" parent="." instance=ExtResource("12_4b78x")]
 z_index = 6
-position = Vector2(750, -212)
+position = Vector2(746, -214)
+script = ExtResource("13_7niyd")
 
 [node name="WinBox" type="Area2D" parent="."]
 collision_mask = 2
@@ -587,6 +590,9 @@ script = ExtResource("13_dkcpx")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WinBox"]
 position = Vector2(10505, -895)
 shape = SubResource("RectangleShape2D_rp1kx")
+
+[node name="Drag_Door" parent="." instance=ExtResource("11_dwkf2")]
+position = Vector2(1202, -249)
 
 [connection signal="area_entered" from="WinBox" to="WinBox" method="_on_area_entered"]
 [connection signal="body_entered" from="WinBox" to="." method="_on_win_box_body_entered"]
