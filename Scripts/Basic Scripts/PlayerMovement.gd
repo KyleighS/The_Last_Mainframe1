@@ -21,6 +21,7 @@ var _health = max_health
 @onready var respawn_timer = $RespawnTimer
 @onready var imunity_timer = $ImunityTimer
 var can_damage = true
+@export var knockbcakPower: int = 3000
 
 func _ready() -> void:
 	checkpoint_manager = get_parent().get_node("CheckpointManager")
@@ -76,9 +77,12 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Enemy") && can_damage:
 		#subtracst health from player
 		_health -= 1
-		animated_sprite.play("Hit")
-		get_node("Camera2D/HealthBar").get_child(_health + 3).hide()
+		#animated_sprite.play("Hit")
+		get_node("CameraPoint/Camera2D/HealthBar").get_child(_health + 3).hide()
 		print("player damaged ", _health)
+		print(position.x)
+		knockback()
+		print(position.x)
 		#starts imunity
 		can_damage = false
 		print("imunity starts")
@@ -106,8 +110,16 @@ func _on_imunity_timer_timeout():
 func heal():
 	if Input.is_action_just_pressed("Heal"):
 		_health += 1
-		get_node("Camera2D/HealthBar").get_child(_health + 2).show()
+		get_node("CameraPoint/Camera2D/HealthBar").get_child(_health + 2).show()
 		if _health > max_health:
 			_health = max_health
 			
 		print("player healed to ", _health)
+
+func knockback():
+	#Note: revisit enemies knocing the player when they are just standing when
+	#I remake the movement of the enemies
+	if is_on_floor():
+		var knockbackDir = -velocity.normalized() * knockbcakPower
+		velocity = knockbackDir
+		move_and_slide()

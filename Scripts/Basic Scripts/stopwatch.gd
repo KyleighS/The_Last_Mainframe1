@@ -4,18 +4,19 @@ extends Node
 @onready var lose_screen: Control = $"../LoseScreen"
 
 var time = 11.0
-var stopped = false
+var stopped = true
 
 func _process(delta):
-	if stopped:
-		return
-	time -= delta
+	if stopped == false:
+		time = time - .015
+		#print("Time:",time)
 	if time <= 0:
 		Engine.time_scale = 0
+		stopped = true
 		lose_screen.show()
 
-func reset():
-	time = 11.0
+#func reset():
+	#time = 11.0
 
 func time_to_string() -> String:
 	#make the time var a string to use in UI

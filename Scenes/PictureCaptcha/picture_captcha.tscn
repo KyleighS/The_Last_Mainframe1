@@ -1,11 +1,21 @@
-[gd_scene load_steps=10 format=3 uid="uid://buvdno3cdyldh"]
+[gd_scene load_steps=19 format=3 uid="uid://buvdno3cdyldh"]
 
 [ext_resource type="FontFile" uid="uid://1rq226utyls8" path="res://Assets/fonts/Perfect DOS VGA 437.ttf" id="1_5tco3"]
+[ext_resource type="Script" uid="uid://bu4xg5ocipitx" path="res://Scripts/captcha_manager.gd" id="1_a2a2n"]
 [ext_resource type="PackedScene" uid="uid://c5fltol0bt0kt" path="res://Scenes/Captcha_HUD.tscn" id="2_m6ncu"]
 [ext_resource type="StyleBox" uid="uid://dbr3ktmbax0xa" path="res://Scenes/PictureCaptcha/OnesBTN.tres" id="3_rmf5w"]
+[ext_resource type="StyleBox" uid="uid://d3qiq3cyshybe" path="res://Scenes/PictureCaptcha/Ones_Clicked.tres" id="3_thbfl"]
 [ext_resource type="StyleBox" uid="uid://oc57v56ot2ws" path="res://Scenes/PictureCaptcha/TwosBTN.tres" id="4_et2ob"]
 [ext_resource type="Script" uid="uid://tn0qpsruhyb1" path="res://Scripts/Basic Scripts/stopwatch.gd" id="4_xb5c2"]
-[ext_resource type="Texture2D" uid="uid://b0u75qiilbe21" path="res://Assets/UI/TwoNrm.png" id="5_et2ob"]
+[ext_resource type="StyleBox" uid="uid://53ttml7wwv17" path="res://Scenes/PictureCaptcha/Twos_Clicked.tres" id="5_1wdhu"]
+[ext_resource type="Script" uid="uid://crhoklts51kr7" path="res://Scripts/Buttons.gd" id="5_k30c6"]
+[ext_resource type="PackedScene" uid="uid://b7psrdysw4hr7" path="res://Scenes/win_screen.tscn" id="9_m8ux6"]
+[ext_resource type="FontFile" uid="uid://x6ycq81brgpn" path="res://Assets/fonts/MS Sans Serif Bold.ttf" id="10_a2a2n"]
+[ext_resource type="Script" uid="uid://dn5cedxaluibv" path="res://Scripts/Drag Captcha/VerifyBtn.gd" id="11_5f03p"]
+[ext_resource type="AudioStream" uid="uid://cevnxp2sxx7ua" path="res://Assets/sounds/UI_Hover.wav" id="13_pohn5"]
+[ext_resource type="AudioStream" uid="uid://ksxru857b703" path="res://Assets/sounds/UI_Click.wav" id="14_famhc"]
+[ext_resource type="AudioStream" uid="uid://beqs24vi8ugoi" path="res://Assets/sounds/coin.wav" id="15_nsyjn"]
+[ext_resource type="AudioStream" uid="uid://d1m1x1mxs0y4e" path="res://Assets/sounds/hurt.wav" id="16_8funq"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_m6ncu"]
 font = ExtResource("1_5tco3")
@@ -19,10 +29,8 @@ font_size = 48
 shadow_color = Color(0, 0, 0, 1)
 shadow_offset = Vector2(2, 2)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_o7nkb"]
-texture = ExtResource("5_et2ob")
-
 [node name="PictureRegCaptcha" type="Node2D"]
+script = ExtResource("1_a2a2n")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -98,66 +106,121 @@ columns = 3
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_styles/pressed = ExtResource("3_thbfl")
 theme_override_styles/normal = ExtResource("3_rmf5w")
 icon_alignment = 1
+script = ExtResource("5_k30c6")
 
-[node name="Button2" type="Button" parent="GridContainer" groups=["Twos"]]
+[node name="Button2" type="Button" parent="GridContainer" groups=["Ones"]]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_styles/pressed = ExtResource("3_thbfl")
+theme_override_styles/normal = ExtResource("3_rmf5w")
+icon_alignment = 1
+script = ExtResource("5_k30c6")
+
+[node name="Button3" type="Button" parent="GridContainer" groups=["Twos"]]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/pressed = ExtResource("5_1wdhu")
 theme_override_styles/normal = ExtResource("4_et2ob")
 icon_alignment = 1
+script = ExtResource("5_k30c6")
 
-[node name="Button3" type="Button" parent="GridContainer" groups=["Ones"]]
+[node name="Button4" type="Button" parent="GridContainer" groups=["Twos"]]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_styles/normal = ExtResource("3_rmf5w")
+theme_override_styles/pressed = ExtResource("5_1wdhu")
+theme_override_styles/normal = ExtResource("4_et2ob")
 icon_alignment = 1
-
-[node name="Button4" type="Button" parent="GridContainer" groups=["Ones"]]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_styles/normal = ExtResource("3_rmf5w")
-icon_alignment = 1
+script = ExtResource("5_k30c6")
 
 [node name="Button5" type="Button" parent="GridContainer" groups=["Ones"]]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_styles/pressed = ExtResource("3_thbfl")
 theme_override_styles/normal = ExtResource("3_rmf5w")
 icon_alignment = 1
+script = ExtResource("5_k30c6")
 
-[node name="Button6" type="Button" parent="GridContainer" groups=["Twos"]]
+[node name="Button6" type="Button" parent="GridContainer" groups=["Ones"]]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_styles/normal = ExtResource("4_et2ob")
+theme_override_styles/pressed = ExtResource("3_thbfl")
+theme_override_styles/normal = ExtResource("3_rmf5w")
 icon_alignment = 1
+script = ExtResource("5_k30c6")
 
 [node name="Button7" type="Button" parent="GridContainer" groups=["Twos"]]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_styles/pressed = ExtResource("5_1wdhu")
 theme_override_styles/normal = ExtResource("4_et2ob")
 icon_alignment = 1
+script = ExtResource("5_k30c6")
 
-[node name="Button8" type="Button" parent="GridContainer" groups=["Ones"]]
+[node name="Button8" type="Button" parent="GridContainer" groups=["Twos"]]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_styles/pressed = ExtResource("5_1wdhu")
+theme_override_styles/normal = ExtResource("4_et2ob")
+icon_alignment = 1
+script = ExtResource("5_k30c6")
+
+[node name="Button9" type="Button" parent="GridContainer" groups=["Ones"]]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/pressed = ExtResource("3_thbfl")
 theme_override_styles/normal = ExtResource("3_rmf5w")
 icon_alignment = 1
-
-[node name="Button9" type="Button" parent="GridContainer" groups=["Twos"]]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_styles/pressed = SubResource("StyleBoxTexture_o7nkb")
-theme_override_styles/normal = ExtResource("4_et2ob")
-icon_alignment = 1
+script = ExtResource("5_k30c6")
 
 [node name="Stopwatch" type="Node" parent="." groups=["stopwatch"]]
 script = ExtResource("4_xb5c2")
 metadata/_custom_type_script = "uid://tn0qpsruhyb1"
+
+[node name="WinScreen" parent="." instance=ExtResource("9_m8ux6")]
+visible = false
+
+[node name="VerifyBTN" type="Button" parent="."]
+offset_left = 804.0
+offset_top = 656.0
+offset_right = 974.0
+offset_bottom = 724.0
+theme_override_fonts/font = ExtResource("10_a2a2n")
+theme_override_font_sizes/font_size = 54
+text = "Verify"
+script = ExtResource("11_5f03p")
+
+[node name="SFX Hover" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_pohn5")
+
+[node name="SFX Click" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_famhc")
+
+[node name="SFX Success" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_nsyjn")
+
+[node name="SFX Failure" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_8funq")
+
+[connection signal="pressed" from="GridContainer/Button" to="GridContainer/Button" method="_on_pressed"]
+[connection signal="toggled" from="GridContainer/Button" to="GridContainer/Button" method="_on_toggled"]
+[connection signal="pressed" from="GridContainer/Button2" to="GridContainer/Button2" method="_on_pressed"]
+[connection signal="pressed" from="GridContainer/Button3" to="GridContainer/Button3" method="_on_pressed"]
+[connection signal="pressed" from="GridContainer/Button4" to="GridContainer/Button4" method="_on_pressed"]
+[connection signal="pressed" from="GridContainer/Button5" to="GridContainer/Button5" method="_on_pressed"]
+[connection signal="pressed" from="GridContainer/Button6" to="GridContainer/Button6" method="_on_pressed"]
+[connection signal="pressed" from="GridContainer/Button7" to="GridContainer/Button7" method="_on_pressed"]
+[connection signal="pressed" from="GridContainer/Button8" to="GridContainer/Button8" method="_on_pressed"]
+[connection signal="pressed" from="GridContainer/Button9" to="GridContainer/Button9" method="_on_pressed"]
+[connection signal="mouse_entered" from="VerifyBTN" to="VerifyBTN" method="_on_mouse_entered"]
+[connection signal="pressed" from="VerifyBTN" to="VerifyBTN" method="_on_pressed"]
