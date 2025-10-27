@@ -15,7 +15,7 @@ func _ready() -> void:
 	
 
 func on_interact():
-	#4stopwatch.stopped = false
+	#stopwatch.stopped = false
 	#print("State: ", stopwatch.stopped)
 	captcha.show()
 	Engine.time_scale = 0

@@ -19,7 +19,6 @@ extends Node2D
 @onready var sfx_success: AudioStreamPlayer = $"../SFX Success"
 @onready var sfx_failure: AudioStreamPlayer = $"../SFX Failure"
 @onready var win_screen: Control = $"../WinScreen"
-var Door = preload("res://Scenes/BasicGame/door.tscn").get_script()
 
 var current_index := 0
 var original_camera_pos: Vector2

@@ -20,5 +20,5 @@ func _ready() -> void:
 func on_interact():
 	#stopwatch.stopped = false
 	#print("State: ", stopwatch.stopped)
-	#drag_captcha.show()
+	captcha.show()
 	Engine.time_scale = 0
