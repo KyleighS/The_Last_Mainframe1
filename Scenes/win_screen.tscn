@@ -81,3 +81,4 @@ vertical_alignment = 1
 
 [connection signal="pressed" from="ColorRect/VBoxContainer/MainMenu" to="." method="_on_main_menu_pressed"]
 [connection signal="pressed" from="ColorRect/VBoxContainer/Replay" to="." method="_on_replay_pressed"]
+[connection signal="pressed" from="ColorRect/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

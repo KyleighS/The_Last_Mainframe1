@@ -1,0 +1,99 @@
+[gd_scene load_steps=11 format=3 uid="uid://br5tyv8kkdqpa"]
+
+[ext_resource type="PackedScene" uid="uid://cvvpacs2wctdm" path="res://Scenes/stopwatch.tscn" id="1_2h360"]
+[ext_resource type="FontFile" uid="uid://1rq226utyls8" path="res://Assets/fonts/Perfect DOS VGA 437.ttf" id="1_mfsu4"]
+[ext_resource type="PackedScene" uid="uid://c5fltol0bt0kt" path="res://Scenes/Captcha_HUD.tscn" id="2_mfsu4"]
+[ext_resource type="PackedScene" uid="uid://cshjmyf3inje2" path="res://Scenes/MatchCaptcha/match_image.tscn" id="2_u56on"]
+[ext_resource type="PackedScene" uid="uid://b7psrdysw4hr7" path="res://Scenes/win_screen.tscn" id="3_b56oj"]
+[ext_resource type="PackedScene" uid="uid://bcgkb3d1ye1t3" path="res://Scenes/lose_screen.tscn" id="4_n61l3"]
+[ext_resource type="AudioStream" uid="uid://cevnxp2sxx7ua" path="res://Assets/sounds/UI_Hover.wav" id="5_u56on"]
+[ext_resource type="AudioStream" uid="uid://ksxru857b703" path="res://Assets/sounds/UI_Click.wav" id="6_osljk"]
+[ext_resource type="AudioStream" uid="uid://beqs24vi8ugoi" path="res://Assets/sounds/coin.wav" id="7_r7lv3"]
+[ext_resource type="AudioStream" uid="uid://d1m1x1mxs0y4e" path="res://Assets/sounds/hurt.wav" id="8_r881y"]
+
+[node name="MatchCaptcha" type="Node2D"]
+
+[node name="MatchCaptcha" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1024.0
+offset_bottom = 768.0
+
+[node name="Background" type="ColorRect" parent="MatchCaptcha"]
+layout_mode = 2
+offset_right = 1024.0
+offset_bottom = 768.0
+mouse_filter = 2
+color = Color(0.298547, 0.370309, 0.483037, 1)
+
+[node name="Label" type="Label" parent="MatchCaptcha"]
+layout_mode = 2
+offset_top = 124.0
+offset_right = 1024.0
+offset_bottom = 188.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("1_mfsu4")
+theme_override_font_sizes/font_size = 44
+text = "Click the arrows to match the image on the right with the one on the left."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="MatchImage" parent="." instance=ExtResource("2_u56on")]
+
+[node name="Stopwatch" parent="." instance=ExtResource("1_2h360")]
+
+[node name="HUD" parent="." instance=ExtResource("2_mfsu4")]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.0
+offset_left = 512.0
+offset_top = 35.0
+offset_right = 512.0
+offset_bottom = 35.0
+grow_vertical = 1
+size_flags_horizontal = 4
+size_flags_vertical = 0
+mouse_filter = 2
+
+[node name="WinScreen" parent="." instance=ExtResource("3_b56oj")]
+visible = false
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 512.0
+offset_top = 384.0
+offset_right = 512.0
+offset_bottom = 384.0
+grow_horizontal = 1
+grow_vertical = 1
+mouse_filter = 2
+
+[node name="LoseScreen" parent="." instance=ExtResource("4_n61l3")]
+visible = false
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 512.0
+offset_top = 384.0
+offset_right = 512.0
+offset_bottom = 384.0
+grow_horizontal = 1
+grow_vertical = 1
+mouse_filter = 2
+
+[node name="SFX Hover" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_u56on")
+
+[node name="SFX Click" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_osljk")
+
+[node name="SFX Success" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_r7lv3")
+
+[node name="SFX Failure" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_r881y")

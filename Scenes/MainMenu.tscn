@@ -81,6 +81,36 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_4y1t2")
 theme_override_styles/normal = SubResource("StyleBoxFlat_uwgq7")
 text = "Basic Game"
 
+[node name="DragCaptcha" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ahh14")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ahh14")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_4y1t2")
+theme_override_styles/normal = SubResource("StyleBoxFlat_uwgq7")
+text = "Drag Captcha"
+
+[node name="MatchCaptcha" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ahh14")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ahh14")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_4y1t2")
+theme_override_styles/normal = SubResource("StyleBoxFlat_uwgq7")
+text = "Match Captcha"
+
 [node name="Options" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
@@ -133,6 +163,10 @@ stream = ExtResource("5_j83vx")
 
 [connection signal="mouse_entered" from="VBoxContainer/Play" to="." method="_on_play_mouse_entered"]
 [connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="mouse_entered" from="VBoxContainer/DragCaptcha" to="." method="_on_drag_captcha_mouse_entered"]
+[connection signal="pressed" from="VBoxContainer/DragCaptcha" to="." method="_on_drag_captcha_pressed"]
+[connection signal="mouse_entered" from="VBoxContainer/MatchCaptcha" to="." method="_on_match_captcha_mouse_entered"]
+[connection signal="pressed" from="VBoxContainer/MatchCaptcha" to="." method="_on_match_captcha_pressed"]
 [connection signal="mouse_entered" from="VBoxContainer/Options" to="." method="_on_options_mouse_entered"]
 [connection signal="pressed" from="VBoxContainer/Options" to="." method="_on_options_pressed"]
 [connection signal="mouse_entered" from="VBoxContainer/Quit" to="." method="_on_quit_mouse_entered"]

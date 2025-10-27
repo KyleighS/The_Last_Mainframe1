@@ -1,0 +1,67 @@
+[gd_scene load_steps=4 format=3 uid="uid://cshjmyf3inje2"]
+
+[ext_resource type="Script" uid="uid://d22y7dvlw1sgu" path="res://Scenes/MatchCaptcha/match_image.gd" id="1_57sxk"]
+[ext_resource type="FontFile" uid="uid://1rq226utyls8" path="res://Assets/fonts/Perfect DOS VGA 437.ttf" id="3_ercub"]
+[ext_resource type="FontFile" uid="uid://x6ycq81brgpn" path="res://Assets/fonts/MS Sans Serif Bold.ttf" id="7_b5ahj"]
+
+[node name="MatchImage" type="Node2D"]
+script = ExtResource("1_57sxk")
+
+[node name="LeftImage" type="Sprite2D" parent="."]
+position = Vector2(280, 440)
+scale = Vector2(0.2, 0.2)
+
+[node name="RightImage" type="Sprite2D" parent="."]
+position = Vector2(700, 440)
+scale = Vector2(0.2, 0.2)
+
+[node name="LeftArrow" type="Button" parent="."]
+offset_left = 586.0
+offset_top = 577.0
+offset_right = 634.0
+offset_bottom = 625.0
+theme_override_font_sizes/font_size = 29
+text = "←"
+
+[node name="RightArrow" type="Button" parent="."]
+offset_left = 767.0
+offset_top = 577.0
+offset_right = 815.0
+offset_bottom = 626.0
+theme_override_font_sizes/font_size = 29
+text = "‭→"
+
+[node name="MatchVerifyButton" type="Button" parent="."]
+offset_left = 804.0
+offset_top = 656.0
+offset_right = 974.0
+offset_bottom = 724.0
+theme_override_fonts/font = ExtResource("7_b5ahj")
+theme_override_font_sizes/font_size = 54
+text = "Verify"
+
+[node name="ErrorOverlay" type="ColorRect" parent="."]
+visible = false
+offset_right = 1024.0
+offset_bottom = 768.0
+color = Color(1, 0.188235, 0.301961, 0.333333)
+
+[node name="ErrorLabel" type="Label" parent="."]
+visible = false
+offset_left = 354.0
+offset_top = 220.0
+offset_right = 635.0
+offset_bottom = 320.0
+theme_override_fonts/font = ExtResource("3_ercub")
+theme_override_font_sizes/font_size = 100
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(512, 384)
+
+[node name="FlashTimer" type="Timer" parent="."]
+
+[connection signal="pressed" from="LeftArrow" to="." method="_on_left_arrow_pressed"]
+[connection signal="pressed" from="RightArrow" to="." method="_on_right_arrow_pressed"]
+[connection signal="pressed" from="MatchVerifyButton" to="." method="_on_match_verify_button_pressed"]
