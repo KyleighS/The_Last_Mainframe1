@@ -592,7 +592,7 @@ position = Vector2(10505, -895)
 shape = SubResource("RectangleShape2D_rp1kx")
 
 [node name="Drag_Door" parent="." instance=ExtResource("11_dwkf2")]
-position = Vector2(1202, -249)
+position = Vector2(4987, -567)
 
 [connection signal="area_entered" from="WinBox" to="WinBox" method="_on_area_entered"]
 [connection signal="body_entered" from="WinBox" to="." method="_on_win_box_body_entered"]

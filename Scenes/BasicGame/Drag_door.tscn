@@ -33,5 +33,6 @@ position = Vector2(0.230641, -75.0325)
 shape = SubResource("RectangleShape2D_obde7")
 
 [node name="DragCaptcha" parent="." instance=ExtResource("4_j5uhn")]
+visible = false
 position = Vector2(-100, -200)
 scale = Vector2(0.2, 0.2)
