@@ -1,0 +1,72 @@
+[gd_scene load_steps=9 format=3 uid="uid://ktqcnk27yoku"]
+
+[ext_resource type="Script" uid="uid://b4s6qvkxnabom" path="res://Scripts/Basic Scripts/enemy.gd" id="1_a0ird"]
+[ext_resource type="Texture2D" uid="uid://dbcdsoj12hysd" path="res://Assets/sprites/Finalized_Walking_sprite_sheet.png" id="2_a0ird"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kf3qw"]
+atlas = ExtResource("2_a0ird")
+region = Rect2(1536, 0, 768, 750)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yghvf"]
+atlas = ExtResource("2_a0ird")
+region = Rect2(0, 0, 768, 750)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iiod0"]
+atlas = ExtResource("2_a0ird")
+region = Rect2(1536, 750, 768, 750)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xgloa"]
+atlas = ExtResource("2_a0ird")
+region = Rect2(0, 0, 768, 750)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qp131"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kf3qw")
+}],
+"loop": true,
+"name": &"Death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yghvf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iiod0")
+}],
+"loop": true,
+"name": &"Hurt",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xgloa")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6do27"]
+size = Vector2(6, 12)
+
+[node name="Enemy" type="Node2D" groups=["Enemy"]]
+position = Vector2(0, -12)
+script = ExtResource("1_a0ird")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(34.32, -20.5)
+scale = Vector2(0.0893334, 0.0893333)
+sprite_frames = SubResource("SpriteFrames_qp131")
+autoplay = "default"
+
+[node name="Area2D" type="Area2D" parent="AnimatedSprite2D" groups=["Enemy"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/Area2D"]
+position = Vector2(0, 6)
+shape = SubResource("RectangleShape2D_6do27")
+
+[connection signal="area_entered" from="AnimatedSprite2D/Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="AnimatedSprite2D/Area2D" to="." method="_on_area_2d_body_entered"]

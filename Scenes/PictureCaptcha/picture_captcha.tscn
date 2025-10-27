@@ -1,163 +1,54 @@
-[gd_scene load_steps=10 format=3 uid="uid://buvdno3cdyldh"]
+[gd_scene load_steps=3 format=3 uid="uid://gu1bm488faex"]
 
-[ext_resource type="FontFile" uid="uid://1rq226utyls8" path="res://Assets/fonts/Perfect DOS VGA 437.ttf" id="1_5tco3"]
-[ext_resource type="PackedScene" uid="uid://c5fltol0bt0kt" path="res://Scenes/Captcha_HUD.tscn" id="2_m6ncu"]
-[ext_resource type="StyleBox" uid="uid://dbr3ktmbax0xa" path="res://Scenes/PictureCaptcha/OnesBTN.tres" id="3_rmf5w"]
-[ext_resource type="StyleBox" uid="uid://oc57v56ot2ws" path="res://Scenes/PictureCaptcha/TwosBTN.tres" id="4_et2ob"]
-[ext_resource type="Script" uid="uid://tn0qpsruhyb1" path="res://Scripts/Basic Scripts/stopwatch.gd" id="4_xb5c2"]
-[ext_resource type="Texture2D" uid="uid://b0u75qiilbe21" path="res://Assets/UI/TwoNrm.png" id="5_et2ob"]
+[ext_resource type="Texture2D" uid="uid://chnco2thd3vbm" path="res://Assets/UI/MenuBackground.png" id="1_dg4op"]
+[ext_resource type="Texture2D" uid="uid://da50asc2tdaoq" path="res://Assets/UI/1Tile.png" id="2_xne2e"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_m6ncu"]
-font = ExtResource("1_5tco3")
-font_size = 48
-shadow_color = Color(0, 0, 0, 1)
-shadow_offset = Vector2(2, 2)
-
-[sub_resource type="LabelSettings" id="LabelSettings_12cw5"]
-font = ExtResource("1_5tco3")
-font_size = 48
-shadow_color = Color(0, 0, 0, 1)
-shadow_offset = Vector2(2, 2)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_o7nkb"]
-texture = ExtResource("5_et2ob")
-
-[node name="PictureRegCaptcha" type="Node2D"]
-
-[node name="Control" type="Control" parent="."]
+[node name="PictureCaptcha" type="Control"]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 1024.0
-offset_bottom = 768.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="ColorRect" type="ColorRect" parent="Control"]
+[node name="Background" type="ColorRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.298039, 0.368627, 0.482353, 1)
+color = Color(0.481789, 0.481789, 0.481789, 0.65098)
 
-[node name="Label" type="Label" parent="Control"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -391.5
-offset_top = 100.0
-offset_right = 391.5
-offset_bottom = 148.0
-grow_horizontal = 2
-text = "Click on all objects of type:"
-label_settings = SubResource("LabelSettings_m6ncu")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="TypeTXT" type="Label" parent="Control/Label"]
+[node name="Menu" type="NinePatchRect" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -54.0
-offset_top = 26.0
-offset_right = 54.0
-offset_bottom = 74.0
+offset_left = -115.5
+offset_top = -151.0
+offset_right = 115.5
+offset_bottom = 151.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Ones"
-label_settings = SubResource("LabelSettings_12cw5")
-horizontal_alignment = 1
-vertical_alignment = 1
+texture = ExtResource("1_dg4op")
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
 
-[node name="Captcha_HUD" parent="." instance=ExtResource("2_m6ncu")]
-offset_left = 512.0
-offset_top = 35.0
-offset_right = 512.0
-offset_bottom = 35.0
-
-[node name="GridContainer" type="GridContainer" parent="."]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 362.0
-offset_top = 234.0
-offset_right = 662.0
-offset_bottom = 534.0
+[node name="GridContainer" type="GridContainer" parent="Menu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 51.0
+offset_bottom = -71.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/h_separation = 10
-theme_override_constants/v_separation = 10
-columns = 3
 
-[node name="Button" type="Button" parent="GridContainer" groups=["Ones"]]
+[node name="Button" type="Button" parent="Menu/GridContainer"]
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_styles/normal = ExtResource("3_rmf5w")
-icon_alignment = 1
-
-[node name="Button2" type="Button" parent="GridContainer" groups=["Twos"]]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_styles/normal = ExtResource("4_et2ob")
-icon_alignment = 1
-
-[node name="Button3" type="Button" parent="GridContainer" groups=["Ones"]]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_styles/normal = ExtResource("3_rmf5w")
-icon_alignment = 1
-
-[node name="Button4" type="Button" parent="GridContainer" groups=["Ones"]]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_styles/normal = ExtResource("3_rmf5w")
-icon_alignment = 1
-
-[node name="Button5" type="Button" parent="GridContainer" groups=["Ones"]]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_styles/normal = ExtResource("3_rmf5w")
-icon_alignment = 1
-
-[node name="Button6" type="Button" parent="GridContainer" groups=["Twos"]]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_styles/normal = ExtResource("4_et2ob")
-icon_alignment = 1
-
-[node name="Button7" type="Button" parent="GridContainer" groups=["Twos"]]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_styles/normal = ExtResource("4_et2ob")
-icon_alignment = 1
-
-[node name="Button8" type="Button" parent="GridContainer" groups=["Ones"]]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_styles/normal = ExtResource("3_rmf5w")
-icon_alignment = 1
-
-[node name="Button9" type="Button" parent="GridContainer" groups=["Twos"]]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_styles/pressed = SubResource("StyleBoxTexture_o7nkb")
-theme_override_styles/normal = ExtResource("4_et2ob")
-icon_alignment = 1
-
-[node name="Stopwatch" type="Node" parent="." groups=["stopwatch"]]
-script = ExtResource("4_xb5c2")
-metadata/_custom_type_script = "uid://tn0qpsruhyb1"
+icon = ExtResource("2_xne2e")
