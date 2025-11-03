@@ -11,14 +11,17 @@ extends StaticBody2D
 func _process(delta: float):
 	if Global.captcha_cleared:
 		queue_free()
-		Engine.time_scale = 1
+		get_tree().paused = false
 
 func _ready() -> void:
+	process_mode = Node.PROCESS_MODE_ALWAYS
 	interactable.interact = on_interact
+	
 	
 
 func on_interact():
-	#stopwatch.stopped = false
+	stopwatch.stopped = false
+	stopwatch.reset()
 	#print("State: ", stopwatch.stopped)
 	captcha.show()
-	Engine.time_scale = 0
+	get_tree().paused = true

@@ -9,8 +9,8 @@
 [ext_resource type="Script" uid="uid://tn0qpsruhyb1" path="res://Scripts/Basic Scripts/stopwatch.gd" id="4_xb5c2"]
 [ext_resource type="StyleBox" uid="uid://53ttml7wwv17" path="res://Scenes/PictureCaptcha/Twos_Clicked.tres" id="5_1wdhu"]
 [ext_resource type="Script" uid="uid://crhoklts51kr7" path="res://Scripts/Buttons.gd" id="5_k30c6"]
-[ext_resource type="PackedScene" uid="uid://b7psrdysw4hr7" path="res://Scenes/win_screen.tscn" id="9_m8ux6"]
 [ext_resource type="FontFile" uid="uid://x6ycq81brgpn" path="res://Assets/fonts/MS Sans Serif Bold.ttf" id="10_a2a2n"]
+[ext_resource type="PackedScene" uid="uid://bcgkb3d1ye1t3" path="res://Scenes/lose_screen.tscn" id="10_pohn5"]
 [ext_resource type="Script" uid="uid://dn5cedxaluibv" path="res://Scripts/Drag Captcha/VerifyBtn.gd" id="11_5f03p"]
 [ext_resource type="AudioStream" uid="uid://cevnxp2sxx7ua" path="res://Assets/sounds/UI_Hover.wav" id="13_pohn5"]
 [ext_resource type="AudioStream" uid="uid://ksxru857b703" path="res://Assets/sounds/UI_Click.wav" id="14_famhc"]
@@ -187,7 +187,7 @@ script = ExtResource("5_k30c6")
 script = ExtResource("4_xb5c2")
 metadata/_custom_type_script = "uid://tn0qpsruhyb1"
 
-[node name="WinScreen" parent="." instance=ExtResource("9_m8ux6")]
+[node name="LoseScreen" parent="." instance=ExtResource("10_pohn5")]
 visible = false
 
 [node name="VerifyBTN" type="Button" parent="."]

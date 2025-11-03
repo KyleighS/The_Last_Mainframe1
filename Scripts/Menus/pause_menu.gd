@@ -1,7 +1,6 @@
 extends Control
 
-@onready var scene: Node2D = $".."
-
+@onready var scene: Node2D = $"../../../.."
 
 func _on_resume_pressed():
 	$"SFX Click".play()

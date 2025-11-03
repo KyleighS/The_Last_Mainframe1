@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://csf6aods7q5v3"]
 
 [ext_resource type="Script" uid="uid://b4s6qvkxnabom" path="res://Scripts/Basic Scripts/enemy.gd" id="1_0gotk"]
-[ext_resource type="Texture2D" uid="uid://c7s5m6x62bg83" path="res://Assets/sprites/Enemy_Flying_Sprite_Sheet.png" id="2_0gotk"]
+[ext_resource type="Texture2D" uid="uid://caieir5ns7hh8" path="res://Assets/sprites/Enemy_Flying_Sprite_Sheet.png" id="2_0gotk"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4asxd"]
 atlas = ExtResource("2_0gotk")
@@ -76,9 +76,9 @@ position = Vector2(0, -12)
 script = ExtResource("1_0gotk")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(15.4337, -1.5)
 scale = Vector2(0.03125, 0.03125)
 sprite_frames = SubResource("SpriteFrames_qp131")
+animation = &"Death"
 autoplay = "default"
 
 [node name="Area2D" type="Area2D" parent="AnimatedSprite2D" groups=["Enemy"]]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://ktqcnk27yoku"]
 
 [ext_resource type="Script" uid="uid://b4s6qvkxnabom" path="res://Scripts/Basic Scripts/enemy.gd" id="1_a0ird"]
-[ext_resource type="Texture2D" uid="uid://dbcdsoj12hysd" path="res://Assets/sprites/Finalized_Walking_sprite_sheet.png" id="2_a0ird"]
+[ext_resource type="Texture2D" uid="uid://dm576clfl4qgb" path="res://Assets/sprites/Finalized_Walking_sprite_sheet.png" id="2_a0ird"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kf3qw"]
 atlas = ExtResource("2_a0ird")
@@ -57,10 +57,11 @@ position = Vector2(0, -12)
 script = ExtResource("1_a0ird")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(34.32, -20.5)
+position = Vector2(-7.62939e-06, -19)
 scale = Vector2(0.0893334, 0.0893333)
 sprite_frames = SubResource("SpriteFrames_qp131")
 autoplay = "default"
+frame_progress = 0.396248
 
 [node name="Area2D" type="Area2D" parent="AnimatedSprite2D" groups=["Enemy"]]
 
