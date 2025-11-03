@@ -65,6 +65,7 @@ func _physics_process(delta: float) -> void:
 	
 func shoot(dir):
 	if Input.is_action_just_pressed("Shoot") and Engine.time_scale == 1:
+		animated_sprite.play("Shooting")
 		bulletObj = bullet.instantiate()
 		bulletObj.init(dir)
 		get_parent().add_child(bulletObj)
@@ -77,7 +78,7 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Enemy") && can_damage:
 		#subtracst health from player
 		_health -= 1
-		#animated_sprite.play("Hit")
+		animated_sprite.play("Hit")
 		get_node("CameraPoint/Camera2D/HealthBar").get_child(_health + 3).hide()
 		print("player damaged ", _health)
 		print(position.x)

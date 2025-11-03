@@ -1,22 +1,29 @@
-class_name Stopwatch
 extends Node
+class_name Stopwatch
 
 @onready var lose_screen: Control = $"../LoseScreen"
 
-var time = 11.0
+var start_time = 21.0
+var time = 21.0
 var stopped = true
+
+signal time_updated(new_time)
+
+func _ready() -> void:
+	process_mode = Node.PROCESS_MODE_ALWAYS
 
 func _process(delta):
 	if stopped == false:
-		time = time - .015
+		time -= delta
+		emit_signal("time_updated", time_to_string())
 		#print("Time:",time)
 	if time <= 0:
-		Engine.time_scale = 0
+		get_tree().paused = true
 		stopped = true
 		lose_screen.show()
 
-#func reset():
-	#time = 11.0
+func reset():
+	time = start_time
 
 func time_to_string() -> String:
 	#make the time var a string to use in UI

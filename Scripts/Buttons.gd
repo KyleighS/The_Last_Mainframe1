@@ -7,7 +7,8 @@ const Twos_clicked = preload("res://Scenes/PictureCaptcha/Twos_Clicked.tres")
 @onready var captcha = get_node("../..") # Adjust if needed
 var clicked = false
 
-#func _ready():
+func _ready():
+	process_mode = Node.PROCESS_MODE_ALWAYS
 	#captcha = captcha.get_script()
 
 func _on_pressed() -> void:

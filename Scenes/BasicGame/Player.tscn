@@ -1,10 +1,87 @@
-[gd_scene load_steps=69 format=3 uid="uid://etwfoi42hs6c"]
+[gd_scene load_steps=89 format=3 uid="uid://etwfoi42hs6c"]
 
 [ext_resource type="Script" uid="uid://0l1mop8jdq0h" path="res://Scripts/Basic Scripts/PlayerMovement.gd" id="1_fx5nb"]
 [ext_resource type="Texture2D" uid="uid://dcdhlheuo8v6o" path="res://Assets/sprites/RunningSpriteSheetLeft.png" id="2_gqctc"]
+[ext_resource type="Texture2D" uid="uid://bnhrfpom8kuub" path="res://Assets/sprites/HitSpriteSheet.png" id="2_qe5eu"]
 [ext_resource type="Texture2D" uid="uid://cbfydjp0bxvxs" path="res://Assets/sprites/JumpingSpriteSheet.png" id="3_0jft3"]
 [ext_resource type="Texture2D" uid="uid://bm8ev1sas6tx4" path="res://Assets/sprites/ShootingSpriteSheet.png" id="4_qe5eu"]
 [ext_resource type="PackedScene" uid="uid://cjpb2fnbkswuh" path="res://Scenes/BasicGame/interact_obj.tscn" id="4_xbmbq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f56fb"]
+atlas = ExtResource("2_qe5eu")
+region = Rect2(0, 0, 2160, 3232)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vgqoo"]
+atlas = ExtResource("2_qe5eu")
+region = Rect2(2160, 0, 2160, 3232)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u2a3u"]
+atlas = ExtResource("2_qe5eu")
+region = Rect2(4320, 0, 2160, 3232)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i03io"]
+atlas = ExtResource("2_qe5eu")
+region = Rect2(6480, 0, 2160, 3232)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0j5rh"]
+atlas = ExtResource("2_qe5eu")
+region = Rect2(8640, 0, 2160, 3232)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yuigx"]
+atlas = ExtResource("2_qe5eu")
+region = Rect2(0, 3232, 2160, 3232)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uk5ol"]
+atlas = ExtResource("2_qe5eu")
+region = Rect2(2160, 3232, 2160, 3232)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x0321"]
+atlas = ExtResource("2_qe5eu")
+region = Rect2(4320, 3232, 2160, 3232)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xkeyh"]
+atlas = ExtResource("2_qe5eu")
+region = Rect2(6480, 3232, 2160, 3232)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mjwug"]
+atlas = ExtResource("2_qe5eu")
+region = Rect2(8640, 3232, 2160, 3232)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_17cr5"]
+atlas = ExtResource("2_qe5eu")
+region = Rect2(0, 6464, 2160, 3232)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kyt38"]
+atlas = ExtResource("2_qe5eu")
+region = Rect2(2160, 6464, 2160, 3232)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ws1ae"]
+atlas = ExtResource("2_qe5eu")
+region = Rect2(4320, 6464, 2160, 3232)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oxpg6"]
+atlas = ExtResource("2_qe5eu")
+region = Rect2(6480, 6464, 2160, 3232)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kw3b8"]
+atlas = ExtResource("2_qe5eu")
+region = Rect2(8640, 6464, 2160, 3232)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k27qa"]
+atlas = ExtResource("2_qe5eu")
+region = Rect2(0, 9696, 2160, 3232)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qhw7n"]
+atlas = ExtResource("2_qe5eu")
+region = Rect2(2160, 9696, 2160, 3232)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rwgu1"]
+atlas = ExtResource("2_qe5eu")
+region = Rect2(4320, 9696, 2160, 3232)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kiu2t"]
+atlas = ExtResource("2_qe5eu")
+region = Rect2(6480, 9696, 2160, 3232)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xbmbq"]
 atlas = ExtResource("2_gqctc")
@@ -250,6 +327,68 @@ region = Rect2(1850, 5550, 1850, 1850)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_f56fb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vgqoo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u2a3u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i03io")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0j5rh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yuigx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uk5ol")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x0321")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xkeyh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mjwug")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_17cr5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kyt38")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ws1ae")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oxpg6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kw3b8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k27qa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qhw7n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rwgu1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kiu2t")
+}],
+"loop": false,
+"name": &"Hit",
+"speed": 50.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_xbmbq")
 }],
 "loop": true,
@@ -420,31 +559,31 @@ animations = [{
 "speed": 60.0
 }, {
 "frames": [{
-"duration": 1.0,
+"duration": 5.0,
 "texture": SubResource("AtlasTexture_qaenp")
 }, {
-"duration": 1.0,
+"duration": 5.0,
 "texture": SubResource("AtlasTexture_sqd8r")
 }, {
-"duration": 1.0,
+"duration": 5.0,
 "texture": SubResource("AtlasTexture_8r5o6")
 }, {
-"duration": 1.0,
+"duration": 5.0,
 "texture": SubResource("AtlasTexture_k63tc")
 }, {
-"duration": 1.0,
+"duration": 5.0,
 "texture": SubResource("AtlasTexture_idmbc")
 }, {
-"duration": 1.0,
+"duration": 5.0,
 "texture": SubResource("AtlasTexture_1d10f")
 }, {
-"duration": 1.0,
+"duration": 5.0,
 "texture": SubResource("AtlasTexture_5ln0u")
 }, {
-"duration": 1.0,
+"duration": 5.0,
 "texture": SubResource("AtlasTexture_0687s")
 }],
-"loop": false,
+"loop": true,
 "name": &"Shooting",
 "speed": 20.0
 }]
@@ -466,8 +605,6 @@ scale = Vector2(0.0549167, 0.0549167)
 sprite_frames = SubResource("SpriteFrames_3od5q")
 animation = &"Shooting"
 autoplay = "Idle"
-frame = 7
-frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -43)
@@ -475,7 +612,7 @@ shape = SubResource("CapsuleShape2D_qaenp")
 debug_color = Color(0, 0.6, 0.701961, 0.772549)
 
 [node name="ShootPoint" type="Marker2D" parent="."]
-position = Vector2(-4, -51)
+position = Vector2(-37, -60)
 
 [node name="Area2D" type="Area2D" parent="."]
 

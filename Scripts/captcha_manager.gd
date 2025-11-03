@@ -5,3 +5,6 @@ extends Node2D
 @export var invalid_PicReg_Nums = 0
 @export var picRegCaptcha_cleared = false
 @export var dragCaptcha_cleared = false
+
+func _ready() -> void:
+	process_mode = Node.PROCESS_MODE_ALWAYS
