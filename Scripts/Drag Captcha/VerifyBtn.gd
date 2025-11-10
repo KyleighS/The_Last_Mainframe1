@@ -8,6 +8,8 @@ extends Button
 @onready var drag_stopwatch: Node2D = $DragCaptcha/Stopwatch
 @onready var picReg_stopwatch: Node2D = $PictureRegCaptcha/Stopwatch
 @onready var picreg_capthca = get_node("..")
+@onready var num_captcha = get_node("..")
+@onready var num_stopwatch: Node2D = $NumCaptcha/Stopwatch
 #@onready var picreg_capthca = $PictureRegCaptcha
 var captcha_name
 
@@ -44,3 +46,10 @@ func _on_pressed():
 			print("not done")
 			sfx_failure.play()
 	
+	elif captcha_name.name == "NumCaptcha":
+		print("checked")
+		if num_captcha.captcha_cleared:
+			sfx_success.play()
+			print("all clear")
+			get_tree().paused = false
+			win_screen.show()
