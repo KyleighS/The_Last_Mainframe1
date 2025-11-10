@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cshjmyf3inje2"]
 
-[ext_resource type="Script" uid="uid://d22y7dvlw1sgu" path="res://Scenes/MatchCaptcha/match_image.gd" id="1_57sxk"]
+[ext_resource type="Script" uid="uid://d22y7dvlw1sgu" path="res://Scripts/Match Captcha/match_image.gd" id="1_57sxk"]
 [ext_resource type="FontFile" uid="uid://1rq226utyls8" path="res://Assets/fonts/Perfect DOS VGA 437.ttf" id="3_ercub"]
 [ext_resource type="FontFile" uid="uid://x6ycq81brgpn" path="res://Assets/fonts/MS Sans Serif Bold.ttf" id="7_b5ahj"]
 
