@@ -26,6 +26,7 @@ var shake_amount = 10
 var shake_duration = 0.2
 var shake_elapsed = 0.0
 var shaking = false
+var captcha_cleared = false
 
 func _ready():
 	# Example: preload images
@@ -82,8 +83,10 @@ func _on_match_verify_button_pressed():
 	if left_image.texture == right_image.texture:
 		print("Success! Images match.")
 		sfx_success.play()
-		Engine.time_scale = 0
-		win_screen.show()
+		#Engine.time_scale = 0
+		get_tree().paused = false
+		captcha_cleared = true
+		#win_screen.show()
 	else:
 		print("Fail! Resetting scene.")
 		sfx_failure.play()
