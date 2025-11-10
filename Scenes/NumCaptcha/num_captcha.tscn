@@ -1,0 +1,214 @@
+[gd_scene load_steps=21 format=3 uid="uid://codrjis6ridkl"]
+
+[ext_resource type="Script" uid="uid://bwxuf5blq6wfa" path="res://Scenes/NumCaptcha/num_captcha.gd" id="1_bi0tu"]
+[ext_resource type="FontFile" uid="uid://1rq226utyls8" path="res://Assets/fonts/Perfect DOS VGA 437.ttf" id="1_c1nli"]
+[ext_resource type="StyleBox" uid="uid://dbr3ktmbax0xa" path="res://Scenes/PictureCaptcha/OnesBTN.tres" id="2_5qb07"]
+[ext_resource type="AudioStream" uid="uid://cevnxp2sxx7ua" path="res://Assets/sounds/UI_Hover.wav" id="2_mykwa"]
+[ext_resource type="StyleBox" uid="uid://oc57v56ot2ws" path="res://Scenes/PictureCaptcha/TwosBTN.tres" id="3_3ek8j"]
+[ext_resource type="AudioStream" uid="uid://ksxru857b703" path="res://Assets/sounds/UI_Click.wav" id="3_6ru61"]
+[ext_resource type="AudioStream" uid="uid://beqs24vi8ugoi" path="res://Assets/sounds/coin.wav" id="4_bnj2v"]
+[ext_resource type="StyleBox" uid="uid://r1qt2j2mamvx" path="res://Scenes/NumCaptcha/ThreeBTN.tres" id="4_u0njp"]
+[ext_resource type="AudioStream" uid="uid://d1m1x1mxs0y4e" path="res://Assets/sounds/hurt.wav" id="5_l0ier"]
+[ext_resource type="StyleBox" uid="uid://dngjvv53n6hu4" path="res://Scenes/NumCaptcha/FourBTN.tres" id="5_rny0s"]
+[ext_resource type="FontFile" uid="uid://x6ycq81brgpn" path="res://Assets/fonts/MS Sans Serif Bold.ttf" id="6_5qb07"]
+[ext_resource type="StyleBox" uid="uid://3kemmotxymiu" path="res://Scenes/NumCaptcha/FiveBTN.tres" id="6_c70yj"]
+[ext_resource type="Script" uid="uid://dn5cedxaluibv" path="res://Scripts/Drag Captcha/VerifyBtn.gd" id="7_3ek8j"]
+[ext_resource type="StyleBox" uid="uid://cjsohvg8hf5on" path="res://Scenes/NumCaptcha/SixBTN.tres" id="7_viujr"]
+[ext_resource type="StyleBox" uid="uid://cvwxdtyf6sw83" path="res://Scenes/NumCaptcha/SevenBTN.tres" id="8_c70yj"]
+[ext_resource type="StyleBox" uid="uid://d4aem27joki8e" path="res://Scenes/NumCaptcha/EightBTN.tres" id="9_viujr"]
+[ext_resource type="StyleBox" uid="uid://d0uwbh7h25dnw" path="res://Scenes/NumCaptcha/NineBTN.tres" id="10_h3u30"]
+[ext_resource type="Script" uid="uid://tn0qpsruhyb1" path="res://Scripts/Basic Scripts/stopwatch.gd" id="10_u0njp"]
+[ext_resource type="PackedScene" uid="uid://c5fltol0bt0kt" path="res://Scenes/Captcha_HUD.tscn" id="11_c1bdq"]
+[ext_resource type="PackedScene" uid="uid://b7psrdysw4hr7" path="res://Scenes/win_screen.tscn" id="20_cfdi4"]
+
+[node name="NumCaptcha" type="Node2D"]
+script = ExtResource("1_bi0tu")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1024.0
+offset_bottom = 768.0
+mouse_filter = 2
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.298547, 0.370309, 0.483037, 1)
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 118.0
+offset_bottom = 223.0
+grow_horizontal = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("1_c1nli")
+theme_override_font_sizes/font_size = 63
+text = "Click all numbers in order"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="One" type="Button" parent="Control" groups=["One"]]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 332.0
+offset_right = 150.0
+offset_bottom = 382.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/normal = ExtResource("2_5qb07")
+
+[node name="Two" type="Button" parent="Control" groups=["Two"]]
+layout_mode = 0
+offset_left = 778.0
+offset_top = 249.0
+offset_right = 828.0
+offset_bottom = 299.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/normal = ExtResource("3_3ek8j")
+
+[node name="Three" type="Button" parent="Control" groups=["Three"]]
+layout_mode = 0
+offset_left = 590.0
+offset_top = 575.0
+offset_right = 640.0
+offset_bottom = 625.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/normal = ExtResource("4_u0njp")
+
+[node name="Four" type="Button" parent="Control" groups=["Four"]]
+layout_mode = 0
+offset_left = 490.0
+offset_top = 322.0
+offset_right = 540.0
+offset_bottom = 372.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/normal = ExtResource("5_rny0s")
+
+[node name="Five" type="Button" parent="Control" groups=["Five"]]
+layout_mode = 0
+offset_left = 139.0
+offset_top = 559.0
+offset_right = 189.0
+offset_bottom = 609.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/normal = ExtResource("6_c70yj")
+
+[node name="Six" type="Button" parent="Control" groups=["Six"]]
+layout_mode = 0
+offset_left = 874.0
+offset_top = 455.0
+offset_right = 924.0
+offset_bottom = 505.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/normal = ExtResource("7_viujr")
+
+[node name="Seven" type="Button" parent="Control" groups=["Seven"]]
+layout_mode = 0
+offset_left = 308.0
+offset_top = 242.0
+offset_right = 358.0
+offset_bottom = 292.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/normal = ExtResource("8_c70yj")
+
+[node name="Eight" type="Button" parent="Control" groups=["Eight"]]
+layout_mode = 0
+offset_left = 778.0
+offset_top = 548.0
+offset_right = 828.0
+offset_bottom = 598.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/normal = ExtResource("9_viujr")
+
+[node name="Nine" type="Button" parent="Control" groups=["Nine"]]
+layout_mode = 0
+offset_left = 389.0
+offset_top = 468.0
+offset_right = 439.0
+offset_bottom = 518.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/normal = ExtResource("10_h3u30")
+
+[node name="SFX Hover" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_mykwa")
+
+[node name="SFX Click" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_6ru61")
+
+[node name="SFX Success" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_bnj2v")
+
+[node name="SFX Failure" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_l0ier")
+
+[node name="VerifyBTN" type="Button" parent="."]
+offset_left = 804.0
+offset_top = 656.0
+offset_right = 974.0
+offset_bottom = 724.0
+theme_override_fonts/font = ExtResource("6_5qb07")
+theme_override_font_sizes/font_size = 54
+text = "Verify"
+script = ExtResource("7_3ek8j")
+
+[node name="Stopwatch" type="Node" parent="." groups=["stopwatch"]]
+script = ExtResource("10_u0njp")
+metadata/_custom_type_script = "uid://tn0qpsruhyb1"
+
+[node name="HUD" parent="." instance=ExtResource("11_c1bdq")]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.0
+offset_left = 512.0
+offset_top = 35.0
+offset_right = 512.0
+offset_bottom = 35.0
+grow_vertical = 1
+size_flags_horizontal = 4
+size_flags_vertical = 0
+mouse_filter = 2
+
+[node name="WinScreen" parent="." instance=ExtResource("20_cfdi4")]
+visible = false
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 512.0
+offset_top = 384.0
+offset_right = 512.0
+offset_bottom = 384.0
+grow_horizontal = 1
+grow_vertical = 1
+mouse_filter = 2
+
+[connection signal="pressed" from="Control/One" to="." method="_on_one_pressed"]
+[connection signal="pressed" from="Control/Two" to="." method="_on_two_pressed"]
+[connection signal="pressed" from="Control/Three" to="." method="_on_three_pressed"]
+[connection signal="pressed" from="Control/Four" to="." method="_on_four_pressed"]
+[connection signal="pressed" from="Control/Five" to="." method="_on_five_pressed"]
+[connection signal="pressed" from="Control/Six" to="." method="_on_six_pressed"]
+[connection signal="pressed" from="Control/Seven" to="." method="_on_seven_pressed"]
+[connection signal="pressed" from="Control/Eight" to="." method="_on_eight_pressed"]
+[connection signal="pressed" from="Control/Nine" to="." method="_on_nine_pressed"]
+[connection signal="mouse_entered" from="VerifyBTN" to="VerifyBTN" method="_on_mouse_entered"]
+[connection signal="pressed" from="VerifyBTN" to="VerifyBTN" method="_on_pressed"]

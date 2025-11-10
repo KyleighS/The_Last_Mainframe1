@@ -1,10 +1,18 @@
-[gd_scene load_steps=20 format=3 uid="uid://dob202asrxibu"]
+[gd_scene load_steps=22 format=3 uid="uid://dob202asrxibu"]
 
 [ext_resource type="Script" uid="uid://0ych0qx3w1un" path="res://Scenes/BasicGame/enemy.gd" id="1_b1xrn"]
 [ext_resource type="Texture2D" uid="uid://dm576clfl4qgb" path="res://Assets/sprites/Finalized_Walking_sprite_sheet.png" id="1_jogu0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jogu0"]
-size = Vector2(613.333, 566.667)
+size = Vector2(1300, 550)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hl5j8"]
+atlas = ExtResource("1_jogu0")
+region = Rect2(0, 0, 768, 750)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m5ufm"]
+atlas = ExtResource("1_jogu0")
+region = Rect2(1536, 0, 768, 750)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b1xrn"]
 atlas = ExtResource("1_jogu0")
@@ -16,35 +24,35 @@ region = Rect2(768, 0, 768, 750)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_snati"]
 atlas = ExtResource("1_jogu0")
-region = Rect2(1536, 0, 768, 750)
+region = Rect2(2304, 0, 768, 750)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_eh57u"]
 atlas = ExtResource("1_jogu0")
-region = Rect2(2304, 0, 768, 750)
+region = Rect2(3072, 0, 768, 750)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fse3y"]
 atlas = ExtResource("1_jogu0")
-region = Rect2(3072, 0, 768, 750)
+region = Rect2(3840, 0, 768, 750)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wc2li"]
 atlas = ExtResource("1_jogu0")
-region = Rect2(3840, 0, 768, 750)
+region = Rect2(4608, 0, 768, 750)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_43yfj"]
 atlas = ExtResource("1_jogu0")
-region = Rect2(4608, 0, 768, 750)
+region = Rect2(5376, 0, 768, 750)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_a0luu"]
 atlas = ExtResource("1_jogu0")
-region = Rect2(5376, 0, 768, 750)
+region = Rect2(6144, 0, 768, 750)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_12hwp"]
 atlas = ExtResource("1_jogu0")
-region = Rect2(6144, 0, 768, 750)
+region = Rect2(6912, 0, 768, 750)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m6c16"]
 atlas = ExtResource("1_jogu0")
-region = Rect2(6912, 0, 768, 750)
+region = Rect2(8448, 0, 768, 750)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5dh8p"]
 atlas = ExtResource("1_jogu0")
@@ -52,22 +60,29 @@ region = Rect2(7680, 0, 768, 750)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ewtw6"]
 atlas = ExtResource("1_jogu0")
-region = Rect2(8448, 0, 768, 750)
+region = Rect2(0, 750, 768, 750)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pvis8"]
 atlas = ExtResource("1_jogu0")
-region = Rect2(0, 750, 768, 750)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_s4vxp"]
-atlas = ExtResource("1_jogu0")
 region = Rect2(768, 750, 768, 750)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_hl5j8"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_s4vxp"]
 atlas = ExtResource("1_jogu0")
 region = Rect2(1536, 750, 768, 750)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_m5ufm"]
 animations = [{
+"frames": [{
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_hl5j8")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_m5ufm")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_b1xrn")
@@ -110,36 +125,54 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_s4vxp")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hl5j8")
 }],
 "loop": true,
 "name": &"Walk",
 "speed": 10.0
 }]
 
-[node name="Enemy" type="CharacterBody2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b1xrn"]
+size = Vector2(760, 560)
+
+[node name="Enemy" type="CharacterBody2D" groups=["Enemy"]]
 position = Vector2(0, -39)
 scale = Vector2(0.15, 0.15)
 script = ExtResource("1_b1xrn")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-13.3333, -10)
+[node name="Area2D" type="Area2D" parent="." groups=["Enemy"]]
+collision_layer = 3
+collision_mask = 3
+
+[node name="PlayerDetection" type="CollisionShape2D" parent="Area2D"]
+light_mask = 2
+visibility_layer = 2
 shape = SubResource("RectangleShape2D_jogu0")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-9, -86)
 sprite_frames = SubResource("SpriteFrames_m5ufm")
-animation = &"Walk"
-frame = 12
-frame_progress = 0.083686
+animation = &"Idle"
+autoplay = "Walk"
+frame_progress = 0.0675311
 
-[node name="RayCast2D" type="RayCast2D" parent="AnimatedSprite2D"]
-target_position = Vector2(600, 0)
+[node name="RayCast2DRight" type="RayCast2D" parent="AnimatedSprite2D"]
+position = Vector2(0, 312.667)
+target_position = Vector2(400, 0)
+collide_with_areas = true
+
+[node name="RayCast2DLeft" type="RayCast2D" parent="AnimatedSprite2D"]
+position = Vector2(0, 312.667)
+target_position = Vector2(-400, 0)
+collide_with_areas = true
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 10.0
+wait_time = 5.0
 one_shot = true
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(6.66666, -6.66699)
+shape = SubResource("RectangleShape2D_b1xrn")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

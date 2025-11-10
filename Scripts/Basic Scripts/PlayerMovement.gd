@@ -1,7 +1,12 @@
 extends CharacterBody2D
 
-@onready var bullet = preload("res://Scenes/TestingScenes/bullet.tscn")
-var bulletObj
+#regular bullets
+@onready var reg_bullet = preload("res://Scenes/BasicGame/RegBullet.tscn")
+var reg_bulletObj
+#freezeing
+@onready var freeze_bullet = preload("res://Scenes/BasicGame/FreezeBullet.tscn")
+var freeze_bulletObj
+var freeze_toggled = false
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity") 
@@ -59,31 +64,43 @@ func _physics_process(delta: float) -> void:
 			animated_sprite.play("Run")
 	else:
 		animated_sprite.play("Jump")
-	shoot(animated_sprite.flip_h)
+	#for shooting/freezing
+	if Input.is_action_just_pressed("Freeze"):
+		freeze_toggled = !freeze_toggled
+	if Input.is_action_just_pressed("Shoot") and Engine.time_scale == 1:
+		if !freeze_toggled:
+			shoot(animated_sprite.flip_h)
+		if freeze_toggled:
+			freeze(animated_sprite.flip_h)
 	move_and_slide()
 	heal()
 	
+#regular shooting
 func shoot(dir):
-	if Input.is_action_just_pressed("Shoot") and Engine.time_scale == 1:
 		animated_sprite.play("Shooting")
-		bulletObj = bullet.instantiate()
-		bulletObj.init(dir)
-		get_parent().add_child(bulletObj)
-		bulletObj.global_position = $ShootPoint.global_position
+		reg_bulletObj = reg_bullet.instantiate()
+		reg_bulletObj.init(dir)
+		get_parent().add_child(reg_bulletObj)
+		reg_bulletObj.global_position = $ShootPoint.global_position
 		
+#freezeing
+func freeze(dir):
+		animated_sprite.play("Shooting")
+		freeze_bulletObj = freeze_bullet.instantiate()
+		freeze_bulletObj.init(dir)
+		get_parent().add_child(freeze_bulletObj)
+		freeze_bulletObj.global_position = $ShootPoint.global_position
 
 #Health Functions
-func _on_area_2d_area_entered(area: Area2D) -> void:
-	#checks if it was an enemy and if the player can take damage
-	if area.is_in_group("Enemy") && can_damage:
+func _on_area_2d_body_entered(body: Node2D) -> void:
+		#checks if it was an enemy and if the player can take damage
+	if body.is_in_group("Enemy") && can_damage:
 		#subtracst health from player
 		_health -= 1
-		animated_sprite.play("Hit")
 		get_node("CameraPoint/Camera2D/HealthBar").get_child(_health + 3).hide()
 		print("player damaged ", _health)
-		print(position.x)
+		animated_sprite.play("Hit")
 		knockback()
-		print(position.x)
 		#starts imunity
 		can_damage = false
 		print("imunity starts")

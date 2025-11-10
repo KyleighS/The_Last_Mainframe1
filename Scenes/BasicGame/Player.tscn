@@ -385,7 +385,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"Hit",
-"speed": 50.0
+"speed": 120.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -559,7 +559,7 @@ animations = [{
 "speed": 60.0
 }, {
 "frames": [{
-"duration": 5.0,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_qaenp")
 }, {
 "duration": 5.0,
@@ -597,14 +597,17 @@ size = Vector2(44, 94)
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 collision_layer = 2
+collision_mask = 3
 script = ExtResource("1_fx5nb")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -47.175)
 scale = Vector2(0.0549167, 0.0549167)
 sprite_frames = SubResource("SpriteFrames_3od5q")
-animation = &"Shooting"
+animation = &"Hit"
 autoplay = "Idle"
+frame = 18
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -43)
