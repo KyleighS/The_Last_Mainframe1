@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://83tqseux81dm"]
 
-[ext_resource type="Script" uid="uid://dykwt18d7x8wl" path="res://Scripts/Basic Scripts/Drag_door.gd" id="1_2ldqy"]
+[ext_resource type="Script" uid="uid://dykwt18d7x8wl" path="res://Scripts/Drag Captcha/Drag_door.gd" id="1_2ldqy"]
 [ext_resource type="Texture2D" uid="uid://0lamotkmjryk" path="res://Assets/sprites/lpc-doors-animated-1.png" id="2_asekq"]
 [ext_resource type="PackedScene" uid="uid://dbeuqwwn08tv4" path="res://Scenes/BasicGame/interactable.tscn" id="3_w0y3c"]
 [ext_resource type="PackedScene" uid="uid://buvdno3cdyldh" path="res://Scenes/PictureCaptcha/picture_captcha.tscn" id="4_2ldqy"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=22 format=3 uid="uid://dob202asrxibu"]
 
-[ext_resource type="Script" uid="uid://0ych0qx3w1un" path="res://Scenes/BasicGame/enemy.gd" id="1_b1xrn"]
+[ext_resource type="Script" uid="uid://b4s6qvkxnabom" path="res://Scripts/Basic Scripts/enemy.gd" id="1_b1xrn"]
 [ext_resource type="Texture2D" uid="uid://dm576clfl4qgb" path="res://Assets/sprites/Finalized_Walking_sprite_sheet.png" id="1_jogu0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jogu0"]

@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=3 uid="uid://b2dso8s1aemlp"]
+
+[ext_resource type="Script" uid="uid://cjrp4ljrpm8qm" path="res://Scripts/Match Captcha/Match_door.gd" id="1_ftcbl"]
+[ext_resource type="Texture2D" uid="uid://0lamotkmjryk" path="res://Assets/sprites/lpc-doors-animated-1.png" id="2_h45h7"]
+[ext_resource type="PackedScene" uid="uid://dbeuqwwn08tv4" path="res://Scenes/BasicGame/interactable.tscn" id="3_mp35x"]
+[ext_resource type="PackedScene" uid="uid://br5tyv8kkdqpa" path="res://Scenes/MatchCaptcha/match_captcha.tscn" id="4_ftcbl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_883h2"]
+size = Vector2(38, 64.5795)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_obde7"]
+size = Vector2(7.84179, 150.691)
+
+[node name="Match_Door" type="StaticBody2D"]
+scale = Vector2(2.16787, 2.16787)
+script = ExtResource("1_ftcbl")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -32)
+texture = ExtResource("2_h45h7")
+region_enabled = true
+region_rect = Rect2(27, 15, 10, 66)
+
+[node name="Interactable" parent="." instance=ExtResource("3_mp35x")]
+interactable_name = "Open Door"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable"]
+position = Vector2(0, -32.2898)
+shape = SubResource("RectangleShape2D_883h2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.230641, -75.0325)
+shape = SubResource("RectangleShape2D_obde7")
+
+[node name="MatchCaptcha" parent="." instance=ExtResource("4_ftcbl")]
+visible = false
+position = Vector2(-100, -200)
+scale = Vector2(0.2, 0.2)
