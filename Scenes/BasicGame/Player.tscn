@@ -326,66 +326,66 @@ region = Rect2(1850, 5550, 1850, 1850)
 [sub_resource type="SpriteFrames" id="SpriteFrames_3od5q"]
 animations = [{
 "frames": [{
-"duration": 1.0,
+"duration": 5.0,
 "texture": SubResource("AtlasTexture_f56fb")
 }, {
-"duration": 1.0,
+"duration": 5.0,
 "texture": SubResource("AtlasTexture_vgqoo")
 }, {
-"duration": 1.0,
+"duration": 5.0,
 "texture": SubResource("AtlasTexture_u2a3u")
 }, {
-"duration": 1.0,
+"duration": 5.0,
 "texture": SubResource("AtlasTexture_i03io")
 }, {
-"duration": 1.0,
+"duration": 5.0,
 "texture": SubResource("AtlasTexture_0j5rh")
 }, {
-"duration": 1.0,
+"duration": 5.0,
 "texture": SubResource("AtlasTexture_yuigx")
 }, {
-"duration": 1.0,
+"duration": 5.0,
 "texture": SubResource("AtlasTexture_uk5ol")
 }, {
-"duration": 1.0,
+"duration": 5.0,
 "texture": SubResource("AtlasTexture_x0321")
 }, {
-"duration": 1.0,
+"duration": 5.0,
 "texture": SubResource("AtlasTexture_xkeyh")
 }, {
-"duration": 1.0,
+"duration": 5.0,
 "texture": SubResource("AtlasTexture_mjwug")
 }, {
-"duration": 1.0,
+"duration": 5.0,
 "texture": SubResource("AtlasTexture_17cr5")
 }, {
-"duration": 1.0,
+"duration": 5.0,
 "texture": SubResource("AtlasTexture_kyt38")
 }, {
-"duration": 1.0,
+"duration": 5.0,
 "texture": SubResource("AtlasTexture_ws1ae")
 }, {
-"duration": 1.0,
+"duration": 5.0,
 "texture": SubResource("AtlasTexture_oxpg6")
 }, {
-"duration": 1.0,
+"duration": 5.0,
 "texture": SubResource("AtlasTexture_kw3b8")
 }, {
-"duration": 1.0,
+"duration": 5.0,
 "texture": SubResource("AtlasTexture_k27qa")
 }, {
-"duration": 1.0,
+"duration": 5.0,
 "texture": SubResource("AtlasTexture_qhw7n")
 }, {
-"duration": 1.0,
+"duration": 5.0,
 "texture": SubResource("AtlasTexture_rwgu1")
 }, {
-"duration": 1.0,
+"duration": 5.0,
 "texture": SubResource("AtlasTexture_kiu2t")
 }],
 "loop": false,
 "name": &"Hit",
-"speed": 120.0
+"speed": 60.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -559,33 +559,33 @@ animations = [{
 "speed": 60.0
 }, {
 "frames": [{
-"duration": 1.0,
+"duration": 20.0,
 "texture": SubResource("AtlasTexture_qaenp")
 }, {
-"duration": 5.0,
+"duration": 20.0,
 "texture": SubResource("AtlasTexture_sqd8r")
 }, {
-"duration": 5.0,
+"duration": 20.0,
 "texture": SubResource("AtlasTexture_8r5o6")
 }, {
-"duration": 5.0,
+"duration": 20.0,
 "texture": SubResource("AtlasTexture_k63tc")
 }, {
-"duration": 5.0,
+"duration": 20.0,
 "texture": SubResource("AtlasTexture_idmbc")
 }, {
-"duration": 5.0,
+"duration": 20.0,
 "texture": SubResource("AtlasTexture_1d10f")
 }, {
-"duration": 5.0,
+"duration": 20.0,
 "texture": SubResource("AtlasTexture_5ln0u")
 }, {
-"duration": 5.0,
+"duration": 20.0,
 "texture": SubResource("AtlasTexture_0687s")
 }],
 "loop": true,
 "name": &"Shooting",
-"speed": 20.0
+"speed": 60.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qaenp"]
@@ -604,18 +604,20 @@ script = ExtResource("1_fx5nb")
 position = Vector2(0, -47.175)
 scale = Vector2(0.0549167, 0.0549167)
 sprite_frames = SubResource("SpriteFrames_3od5q")
-animation = &"Hit"
+animation = &"Shooting"
 autoplay = "Idle"
-frame = 18
-frame_progress = 1.0
+frame = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -43)
 shape = SubResource("CapsuleShape2D_qaenp")
 debug_color = Color(0, 0.6, 0.701961, 0.772549)
 
-[node name="ShootPoint" type="Marker2D" parent="."]
+[node name="ShootPointLeft" type="Marker2D" parent="."]
 position = Vector2(-37, -60)
+
+[node name="ShootPointRight" type="Marker2D" parent="."]
+position = Vector2(37, -60)
 
 [node name="Area2D" type="Area2D" parent="."]
 
@@ -637,5 +639,5 @@ position = Vector2(0, -10)
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="timeout" from="ImunityTimer" to="." method="_on_imunity_timer_timeout"]
-[connection signal="timeout" from="RespawnTimer" to="." method="_on_respawn_timer_timeout"]
 [connection signal="timeout" from="RespawnTimer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="RespawnTimer" to="." method="_on_respawn_timer_timeout"]

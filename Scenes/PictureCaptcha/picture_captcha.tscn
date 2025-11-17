@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://buvdno3cdyldh"]
+[gd_scene load_steps=22 format=3 uid="uid://buvdno3cdyldh"]
 
 [ext_resource type="FontFile" uid="uid://1rq226utyls8" path="res://Assets/fonts/Perfect DOS VGA 437.ttf" id="1_5tco3"]
 [ext_resource type="Script" uid="uid://bu4xg5ocipitx" path="res://Scripts/captcha_manager.gd" id="1_a2a2n"]
@@ -16,6 +16,7 @@
 [ext_resource type="AudioStream" uid="uid://ksxru857b703" path="res://Assets/sounds/UI_Click.wav" id="14_famhc"]
 [ext_resource type="AudioStream" uid="uid://beqs24vi8ugoi" path="res://Assets/sounds/coin.wav" id="15_nsyjn"]
 [ext_resource type="AudioStream" uid="uid://d1m1x1mxs0y4e" path="res://Assets/sounds/hurt.wav" id="16_8funq"]
+[ext_resource type="PackedScene" uid="uid://cy5l3psuux2l1" path="res://Scenes/PictureCaptcha/dvd.tscn" id="17_famhc"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_m6ncu"]
 font = ExtResource("1_5tco3")
@@ -28,6 +29,12 @@ font = ExtResource("1_5tco3")
 font_size = 48
 shadow_color = Color(0, 0, 0, 1)
 shadow_offset = Vector2(2, 2)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_nsyjn"]
+b = Vector2(-6.10352e-05, 1022)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_8funq"]
+b = Vector2(0, 768)
 
 [node name="PictureRegCaptcha" type="Node2D"]
 script = ExtResource("1_a2a2n")
@@ -211,6 +218,50 @@ stream = ExtResource("15_nsyjn")
 
 [node name="SFX Failure" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("16_8funq")
+
+[node name="DVD" parent="." instance=ExtResource("17_famhc")]
+position = Vector2(157, 117)
+disable_mode = 2
+collision_layer = 4
+collision_mask = 4
+input_pickable = true
+
+[node name="BoundaryWall3" type="StaticBody2D" parent="."]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoundaryWall3"]
+rotation = -1.5708
+shape = SubResource("SegmentShape2D_nsyjn")
+debug_color = Color(0.145098, 0.721569, 0.243137, 0.419608)
+
+[node name="BoundaryWall5" type="StaticBody2D" parent="."]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoundaryWall5"]
+position = Vector2(1, 768)
+rotation = -1.5708
+shape = SubResource("SegmentShape2D_nsyjn")
+debug_color = Color(0.145098, 0.721569, 0.243137, 0.419608)
+
+[node name="BoundaryWall6" type="StaticBody2D" parent="."]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoundaryWall6"]
+position = Vector2(1, 0)
+shape = SubResource("SegmentShape2D_8funq")
+debug_color = Color(0.145098, 0.721569, 0.243137, 0.419608)
+
+[node name="BoundaryWall7" type="StaticBody2D" parent="."]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoundaryWall7"]
+position = Vector2(1023, 0)
+shape = SubResource("SegmentShape2D_8funq")
+debug_color = Color(0.145098, 0.721569, 0.243137, 0.419608)
 
 [connection signal="pressed" from="GridContainer/Button" to="GridContainer/Button" method="_on_pressed"]
 [connection signal="toggled" from="GridContainer/Button" to="GridContainer/Button" method="_on_toggled"]

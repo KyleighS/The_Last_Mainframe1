@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://cy5l3psuux2l1"]
+
+[ext_resource type="Script" uid="uid://bo7l0kjiusbyr" path="res://Scripts/Pic Captcha/dvd.gd" id="1_830dg"]
+[ext_resource type="Texture2D" uid="uid://r23xxyplnv8o" path="res://Assets/sprites/DVD_logo.svg.png" id="1_oeotf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_830dg"]
+size = Vector2(256, 113)
+
+[node name="DVD" type="CharacterBody2D"]
+script = ExtResource("1_830dg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_oeotf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_830dg")

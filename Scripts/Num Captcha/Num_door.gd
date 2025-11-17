@@ -4,11 +4,12 @@ extends StaticBody2D
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var captcha: Node2D = $NumCaptcha
 @onready var stopwatch = $NumCaptcha/Stopwatch
+@onready var verifyBTN = $NumCaptcha/VerifyBTN
 
 @export var captcha_cleared = false
 
 func _process(delta: float):
-	if captcha.captcha_cleared:
+	if verifyBTN.verified:
 		queue_free()
 		get_tree().paused = false
 
