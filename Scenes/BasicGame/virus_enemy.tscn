@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cl4562pp8ayig"]
+[gd_scene load_steps=10 format=3 uid="uid://cl4562pp8ayig"]
 
 [ext_resource type="Script" uid="uid://8spuxeqdi2hj" path="res://Scripts/Basic Scripts/virus_enemy.gd" id="1_ngmnu"]
 [ext_resource type="Texture2D" uid="uid://caieir5ns7hh8" path="res://Assets/sprites/Enemy_Flying_Sprite_Sheet.png" id="1_yv5dy"]
@@ -38,6 +38,9 @@ size = Vector2(50, 52.5)
 [sub_resource type="CircleShape2D" id="CircleShape2D_ngmnu"]
 radius = 87.0517
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ngmnu"]
+size = Vector2(71, 58)
+
 [node name="VirusEnemy" type="CharacterBody2D"]
 collision_layer = 8
 collision_mask = 8
@@ -50,8 +53,8 @@ sprite_frames = SubResource("SpriteFrames_fo1ry")
 animation = &"Fly"
 
 [node name="BodyCollision" type="Area2D" parent="."]
-collision_layer = 8
-collision_mask = 8
+collision_layer = 9
+collision_mask = 9
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BodyCollision"]
 position = Vector2(0, -25)
@@ -68,6 +71,10 @@ collision_mask = 10
 position = Vector2(0, -25)
 shape = SubResource("CircleShape2D_ngmnu")
 debug_color = Color(0.739593, 0.219433, 1, 0.42)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, -29)
+shape = SubResource("RectangleShape2D_ngmnu")
 
 [connection signal="area_entered" from="BodyCollision" to="." method="_on_body_collision_area_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
