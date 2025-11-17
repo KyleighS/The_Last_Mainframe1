@@ -1,0 +1,74 @@
+[gd_scene load_steps=9 format=3 uid="uid://cl4562pp8ayig"]
+
+[ext_resource type="Script" uid="uid://8spuxeqdi2hj" path="res://Scripts/Basic Scripts/virus_enemy.gd" id="1_ngmnu"]
+[ext_resource type="Texture2D" uid="uid://caieir5ns7hh8" path="res://Assets/sprites/Enemy_Flying_Sprite_Sheet.png" id="1_yv5dy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ngmnu"]
+atlas = ExtResource("1_yv5dy")
+region = Rect2(0, 0, 968, 800)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fbdiu"]
+atlas = ExtResource("1_yv5dy")
+region = Rect2(968, 0, 968, 800)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3kccf"]
+atlas = ExtResource("1_yv5dy")
+region = Rect2(1936, 0, 968, 800)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fo1ry"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ngmnu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fbdiu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3kccf")
+}],
+"loop": true,
+"name": &"Fly",
+"speed": 7.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yv5dy"]
+size = Vector2(50, 52.5)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ngmnu"]
+radius = 87.0517
+
+[node name="VirusEnemy" type="CharacterBody2D"]
+collision_layer = 8
+collision_mask = 8
+script = ExtResource("1_ngmnu")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(5.96046e-08, -29)
+scale = Vector2(0.08, 0.08)
+sprite_frames = SubResource("SpriteFrames_fo1ry")
+animation = &"Fly"
+
+[node name="BodyCollision" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BodyCollision"]
+position = Vector2(0, -25)
+shape = SubResource("RectangleShape2D_yv5dy")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="PlayerDetection" type="Area2D" parent="."]
+collision_layer = 10
+collision_mask = 10
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetection"]
+position = Vector2(0, -25)
+shape = SubResource("CircleShape2D_ngmnu")
+debug_color = Color(0.739593, 0.219433, 1, 0.42)
+
+[connection signal="area_entered" from="BodyCollision" to="." method="_on_body_collision_area_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="body_entered" from="PlayerDetection" to="." method="_on_player_detection_body_entered"]

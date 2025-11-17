@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://drkm8py3qe8y2"]
+[gd_scene load_steps=37 format=3 uid="uid://drkm8py3qe8y2"]
 
 [ext_resource type="Script" uid="uid://bjr4yusa8q5pe" path="res://Scripts/Basic Scripts/testing_scene.gd" id="1_0svm2"]
 [ext_resource type="Texture2D" uid="uid://mu3c25saau4y" path="res://Assets/sprites/world_tileset.png" id="2_dwkf2"]
@@ -156,6 +156,16 @@ texture = ExtResource("2_dwkf2")
 [sub_resource type="TileSet" id="TileSet_fc0e3"]
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_feb5d")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s3crk"]
+bg_color = Color(0.215902, 0.215902, 0.215902, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8esdv"]
+bg_color = Color(0, 0.725958, 0.182311, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_fc0e3"]
 
@@ -346,6 +356,24 @@ scale = Vector2(5, 5)
 [node name="WinScreen" parent="Player/CameraPoint/Camera2D" instance=ExtResource("6_311h1")]
 visible = false
 scale = Vector2(5, 5)
+
+[node name="GunStamina" type="ProgressBar" parent="Player/CameraPoint/Camera2D"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -2436.0
+offset_top = -1550.0
+offset_right = -1209.0
+offset_bottom = -1432.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_s3crk")
+theme_override_styles/fill = SubResource("StyleBoxFlat_8esdv")
+max_value = 10.0
+value = 7.0
+show_percentage = false
 
 [node name="Enemy" parent="." node_paths=PackedStringArray("player") instance=ExtResource("5_4b78x")]
 position = Vector2(104, -36)

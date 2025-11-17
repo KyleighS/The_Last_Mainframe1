@@ -1,0 +1,59 @@
+[gd_scene load_steps=2 format=3 uid="uid://ktqvyb3sx31w"]
+
+[ext_resource type="FontFile" uid="uid://y25p5iecqqxt" path="res://Assets/fonts/MS Sans Serif.ttf" id="1_plplt"]
+
+[node name="OptionsMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MenuBG" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -350.0
+offset_top = -200.0
+offset_right = 350.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.152941, 0.152941, 0.152941, 0.780392)
+
+[node name="BackBTN" type="Button" parent="MenuBG"]
+offset_left = 9.0
+offset_top = 337.0
+offset_right = 169.0
+offset_bottom = 393.0
+theme_override_fonts/font = ExtResource("1_plplt")
+theme_override_font_sizes/font_size = 44
+text = "Back"
+
+[node name="MarginContainer" type="MarginContainer" parent="MenuBG"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -325.0
+offset_right = 325.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 325
+theme_override_constants/margin_top = 180
+theme_override_constants/margin_right = 325
+theme_override_constants/margin_bottom = 180
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MenuBG/MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MenuBG/MarginContainer/ScrollContainer"]
+layout_mode = 2
+theme_override_constants/separation = 64
+alignment = 1
