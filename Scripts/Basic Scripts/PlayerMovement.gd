@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+@onready var gun_stamina: ProgressBar = $CameraPoint/Camera2D/GunStamina
+var maxStamina
 #regular bullets
 @onready var reg_bullet = preload("res://Scenes/BasicGame/RegBullet.tscn")
 var reg_bulletObj
@@ -9,12 +11,13 @@ var freeze_bulletObj
 var freeze_toggled = false
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
+#var gravity = ProjectSettings.get_setting("physics/2d/default_gravity") 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity") 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 var checkpoint_manager
 var player
 
-const SPEED = 270.0
+const SPEED = 300.0
 const JUMP_VELOCITY = -600.0
 
 # Gets the input direction
@@ -31,6 +34,8 @@ var can_damage = true
 func _ready() -> void:
 	checkpoint_manager = get_parent().get_node("CheckpointManager")
 	player = get_parent().get_node("Player")
+	Global.playerBody = self
+	gun_stamina.value = 10
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -67,7 +72,8 @@ func _physics_process(delta: float) -> void:
 	#for shooting/freezing
 	if Input.is_action_just_pressed("Freeze"):
 		freeze_toggled = !freeze_toggled
-	if Input.is_action_just_pressed("Shoot") and Engine.time_scale == 1:
+	if Input.is_action_just_pressed("Shoot") and Engine.time_scale == 1 and gun_stamina.value > 0:
+		gun_stamina.value -= 1
 		if !freeze_toggled:
 			shoot(animated_sprite.flip_h)
 		if freeze_toggled:
@@ -81,7 +87,12 @@ func shoot(dir):
 		reg_bulletObj = reg_bullet.instantiate()
 		reg_bulletObj.init(dir)
 		get_parent().add_child(reg_bulletObj)
-		reg_bulletObj.global_position = $ShootPoint.global_position
+		if !animated_sprite.flip_h:
+			reg_bulletObj.flip_h = true
+			reg_bulletObj.global_position = $ShootPointLeft.global_position
+		else:
+			reg_bulletObj.flip_h = false
+			reg_bulletObj.global_position = $ShootPointRight.global_position
 		
 #freezeing
 func freeze(dir):
@@ -89,7 +100,12 @@ func freeze(dir):
 		freeze_bulletObj = freeze_bullet.instantiate()
 		freeze_bulletObj.init(dir)
 		get_parent().add_child(freeze_bulletObj)
-		freeze_bulletObj.global_position = $ShootPoint.global_position
+		if !animated_sprite.flip_h:
+			freeze_bulletObj.flip_h = true
+			freeze_bulletObj.global_position = $ShootPointLeft.global_position
+		else:
+			freeze_bulletObj.flip_h = false
+			freeze_bulletObj.global_position = $ShootPointRight.global_position
 
 #Health Functions
 func _on_area_2d_body_entered(body: Node2D) -> void:
@@ -127,6 +143,8 @@ func _on_imunity_timer_timeout():
 
 func heal():
 	if Input.is_action_just_pressed("Heal"):
+		if _health == max_health:
+			return
 		_health += 1
 		get_node("CameraPoint/Camera2D/HealthBar").get_child(_health + 2).show()
 		if _health > max_health:

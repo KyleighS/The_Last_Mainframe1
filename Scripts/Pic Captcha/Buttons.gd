@@ -1,9 +1,9 @@
 extends Button
 
-const Ones_normal = preload("res://Scenes/PictureCaptcha/OnesBTN.tres")
-const Ones_clicked = preload("res://Scenes/PictureCaptcha/Ones_Clicked.tres")
-const Twos_normal = preload("res://Scenes/PictureCaptcha/TwosBTN.tres")
-const Twos_clicked = preload("res://Scenes/PictureCaptcha/Twos_Clicked.tres")
+const Ones_normal = preload("res://Assets/UI/BTN Textures/OnesBTN.tres")
+const Ones_clicked = preload("res://Assets/UI/BTN Textures/Ones_Clicked.tres")
+const Twos_normal = preload("res://Assets/UI/BTN Textures/TwosBTN.tres")
+const Twos_clicked = preload("res://Assets/UI/BTN Textures/Twos_Clicked.tres")
 @onready var captcha = get_node("../..") # Adjust if needed
 var clicked = false
 

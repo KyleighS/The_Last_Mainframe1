@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bmvrujq7026lp" path="res://Scripts/Drag Captcha/end_zone.gd" id="1_nmkik"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bprk2"]
+size = Vector2(35, 35)
 
 [node name="End_Zone" type="StaticBody2D" groups=["dropable"]]
 script = ExtResource("1_nmkik")
@@ -14,10 +15,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -60.0
-offset_top = -60.0
-offset_right = 60.0
-offset_bottom = 60.0
+offset_left = -80.0
+offset_top = -80.0
+offset_right = 80.0
+offset_bottom = 80.0
 grow_horizontal = 2
 grow_vertical = 2
 
