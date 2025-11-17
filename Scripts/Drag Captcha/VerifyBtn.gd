@@ -12,6 +12,7 @@ extends Button
 @onready var num_stopwatch: Node2D = $NumCaptcha/Stopwatch
 #@onready var picreg_capthca = $PictureRegCaptcha
 var captcha_name
+var verified
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
@@ -49,6 +50,7 @@ func _on_pressed():
 	elif captcha_name.name == "NumCaptcha":
 		print("checked")
 		if num_captcha.captcha_cleared:
+			verified = true
 			sfx_success.play()
 			print("all clear")
 			get_tree().paused = false

@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://etwfoi42hs6c" path="res://Scenes/BasicGame/Player.tscn" id="5_pd5eb"]
 [ext_resource type="PackedScene" uid="uid://djfehby01td3w" path="res://Scenes/PauseMenu.tscn" id="6_it6er"]
 [ext_resource type="PackedScene" uid="uid://eey4h6dgdfsf" path="res://Scenes/BasicGame/Health_Bar.tscn" id="7_3wtmg"]
-[ext_resource type="PackedScene" uid="uid://dob202asrxibu" path="res://Scenes/BasicGame/Enemy.tscn" id="10_yrql8"]
+[ext_resource type="PackedScene" uid="uid://cl4562pp8ayig" path="res://Scenes/BasicGame/virus_enemy.tscn" id="7_kxku6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fk0xq"]
 texture = ExtResource("4_i5n5b")
@@ -173,12 +173,18 @@ visible = false
 z_index = 5
 scale = Vector2(5, 5)
 
-[node name="Enemy" parent="." node_paths=PackedStringArray("player") instance=ExtResource("10_yrql8")]
-position = Vector2(-84, -40)
-player = NodePath("../Player")
-
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(203, -95)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_8hnsu")
+
+[node name="VirusEnemy" parent="." instance=ExtResource("7_kxku6")]
+position = Vector2(-122, -116)
+
+[node name="virusCollision" type="StaticBody2D" parent="."]
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="virusCollision"]
+polygon = PackedVector2Array(-259, -349, -258, 3, 248, 4, 248, -355, -296, -359, -295, -390, 274, -390, 274, 17, -293, 14, -293, -349)
