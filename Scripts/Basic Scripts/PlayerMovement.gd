@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @onready var gun_stamina: ProgressBar = $CameraPoint/Camera2D/GunStamina
-var maxStamina
+var maxStamina = 10
 #regular bullets
 @onready var reg_bullet = preload("res://Scenes/BasicGame/RegBullet.tscn")
 var reg_bulletObj
@@ -35,7 +35,7 @@ func _ready() -> void:
 	checkpoint_manager = get_parent().get_node("CheckpointManager")
 	player = get_parent().get_node("Player")
 	Global.playerBody = self
-	gun_stamina.value = 10
+	gun_stamina.value = maxStamina
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -72,7 +72,7 @@ func _physics_process(delta: float) -> void:
 	#for shooting/freezing
 	if Input.is_action_just_pressed("Freeze"):
 		freeze_toggled = !freeze_toggled
-	if Input.is_action_just_pressed("Shoot") and Engine.time_scale == 1 and gun_stamina.value > 0:
+	if Input.is_action_just_pressed("Shoot") and Engine.time_scale == 1:
 		gun_stamina.value -= 1
 		if !freeze_toggled:
 			shoot(animated_sprite.flip_h)

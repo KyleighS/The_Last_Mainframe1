@@ -14,7 +14,7 @@ func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		print("player entered checkpoint")
 		checkpoint_manager.last_location = $RespawnPoint.global_position
-		player.
+		player.gun_stamina.value = 10.0
 		if !checkpointReached:
 			sfx_check_point.play()
 			checkpointReached = true
